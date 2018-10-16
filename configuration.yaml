@@ -54,8 +54,7 @@ map:
 sun:
 
 # Weather prediction
-sensor:
-  - platform: yr
+sensor: !include sensors.yaml
 
 # Text to speech
 tts:
