@@ -1,7 +1,7 @@
 - platform: pi_hole
-    host: localhost:4865
-    monitored_conditions:
-      - ads_blocked_today
-      - dns_queries_today
-      - unique_clients
+  monitored_conditions:
+   - ads_blocked_today
+   - ads_percentage_today
+   - unique_clients
+   - clients_ever_seen
 - platform: yr
