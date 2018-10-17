@@ -74,3 +74,8 @@ automation: !include_dir_list automations
 script: !include_dir_list scripts
 device_tracker: !include_dir_list device_tracker
 zone: !include_dir_list zones
+
+mqtt:
+ broker: core-mosquitto
+ username: !secret mqtt_user
+ password: !secret mqtt_password

@@ -1,4 +1,4 @@
 name: Work
 latitude: !secret alex_work_lat
 longitude: !secret alex_work_lon
-radius: 250
+radius: 50
