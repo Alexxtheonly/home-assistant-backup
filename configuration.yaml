@@ -43,6 +43,12 @@ conversation:
 
 # Enables support for tracking state changes over time
 history:
+  include: 
+    entities:
+       - device_tracker.alexgalaxys6edge
+       - sensor.dark_sky_temperature
+       - sensor.processor_use
+       - sensor.memory_use_percent
 
 # View all events in a logbook
 logbook:
@@ -66,4 +72,5 @@ cloud:
 group: !include_dir_merge_list /groups
 automation: !include_dir_merge_list /automations
 script: !include_dir_merge_list /scripts
-device_tracker: !include_dir_merge_list device_tracker
+device_tracker: !include_dir_merge_list /device_tracker
+zone: !include_dir_merge_list /zones
