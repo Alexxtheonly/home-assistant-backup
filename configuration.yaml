@@ -79,3 +79,10 @@ mqtt:
  broker: core-mosquitto
  username: !secret mqtt_user
  password: !secret mqtt_password
+
+panel_custom:
+ - name: floorplan
+   sidebar_title: Floorplan
+   sidebar_icon: mdi:home
+   url_path: floorplan
+   config: !include floorplan.yaml
