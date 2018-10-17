@@ -66,3 +66,4 @@ cloud:
 group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
+device_tracker: !include devices.yaml

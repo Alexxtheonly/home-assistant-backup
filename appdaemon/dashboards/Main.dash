@@ -17,6 +17,14 @@ clock:
     time_format: "24hr"
     time_style: "color: orange; font-size: 380%"
     date_style: "font-size: 150%"
+
+alex_presence:
+ widget_type: device_tracker
+ title: Alex
+ device: alexgalaxys6edge
+ active_map:
+  - home
     
 layout:
-    - clock(2x1), weather(2x2)
+    - clock(2x1), weather(2x2) 
+    - alex_presence(1x1)
