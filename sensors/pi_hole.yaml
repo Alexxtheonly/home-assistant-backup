@@ -1,0 +1,6 @@
+- platform: pi_hole
+  monitored_conditions:
+   - ads_blocked_today
+   - ads_percentage_today
+   - unique_clients
+   - clients_ever_seen

@@ -54,7 +54,7 @@ map:
 sun:
 
 # Weather prediction
-sensor: !include sensors.yaml
+sensor: !include_dir_merge_list /sensors
 
 # Text to speech
 tts:
@@ -63,7 +63,7 @@ tts:
 # Cloud
 cloud:
 
-group: !include groups.yaml
-automation: !include automations.yaml
-script: !include scripts.yaml
-device_tracker: !include devices.yaml
+group: !include_dir_merge_list /groups
+automation: !include_dir_merge_list /automations
+script: !include_dir_merge_list /scripts
+device_tracker: !include_dir_merge_list device_tracker
