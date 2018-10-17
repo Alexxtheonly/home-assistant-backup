@@ -12,8 +12,8 @@
       last_motion_class: last-motion
 
       groups:
-
-        - name: Sensors
+      
+        - name: Temperature
           entities:
              -  sensor.dark_sky_temperature
           #text_template: '${entity.state ? entity.state : "unknown"}'
@@ -28,3 +28,11 @@
             else
               return "temp-high";
             '
+        # The icon is misplaced even if you have it in root
+        #- name: Weather
+        #  entities:
+        #   - sensor.dark_sky_icon
+        #  image_template: 'return "/local/custom_ui/floorplan/images/weather/" + entity.state + ".svg";'
+        - name: Device_Tracker_Alex
+          entities:
+           - device_tracker.alexgalaxys6edge
