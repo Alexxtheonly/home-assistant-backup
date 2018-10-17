@@ -11,3 +11,30 @@
    - type: memory_use_percent
    - type: disk_use
    - type: processor_use
+- platform: darksky
+  api_key: !secret darksky_api_key
+  language: de
+  monitored_conditions:
+   - icon
+   - summary
+   - precip_type
+   - precip_intensity
+   - precip_probability
+   - precip_accumulation
+   - temperature
+   - apparent_temperature
+   - dew_point
+   - wind_speed
+   - wind_bearing
+   - cloud_cover
+   - humidity
+   - pressure
+   - visibility
+   - ozone
+   - temperature_high
+   - temperature_low
+   - apparent_temperature_high
+   - apparent_temperature_low
+   - precip_intensity_max
+   - uv_index
+   - moon_phase

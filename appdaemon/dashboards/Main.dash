@@ -1,0 +1,22 @@
+#
+# Main arguments, all optional
+#
+title: Main Panel
+widget_dimensions: [120, 120]
+widget_margins: [5, 5]
+columns: 8
+
+weather:
+    widget_type: weather
+    units: "&deg;C"    
+
+clock:
+    widget_type: clock
+    widget_style: "font-size: 120%"
+    date_format_country: "de"
+    time_format: "24hr"
+    time_style: "color: orange; font-size: 380%"
+    date_style: "font-size: 150%"
+    
+layout:
+    - clock(2x1), weather(2x2)
