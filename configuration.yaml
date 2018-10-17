@@ -60,7 +60,7 @@ map:
 sun:
 
 # Weather prediction
-sensor: !include_dir_merge_list /sensors
+sensor: !include_dir_list sensors
 
 # Text to speech
 tts:
@@ -69,8 +69,8 @@ tts:
 # Cloud
 cloud:
 
-group: !include_dir_merge_list /groups
-automation: !include_dir_merge_list /automations
-script: !include_dir_merge_list /scripts
-device_tracker: !include_dir_merge_list /device_tracker
-zone: !include_dir_merge_list /zones
+group: !include_dir_list groups
+automation: !include_dir_list automations
+script: !include_dir_list scripts
+device_tracker: !include_dir_list device_tracker
+zone: !include_dir_list zones
