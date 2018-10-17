@@ -24,7 +24,41 @@ alex_presence:
  device: alexgalaxys6edge
  active_map:
   - home
-    
+
+disk_use_gauge:
+ widget_type: gauge
+ entity: sensor.disk_use_percent_
+ title: disk usage
+ units: "%"
+ min: 0
+ max: 100
+ med_color: "00ff00"
+ low_color: "0000ff"
+ high_color: "ff0000"
+
+cpu_use_gauge:
+ widget_type: gauge
+ entity: sensor.processor_use
+ title: CPU
+ units: "%"
+ min: 0
+ max: 100
+ med_color: "00ff00"
+ low_color: "0000ff"
+ high_color: "ff0000"
+
+ram_use_gauge:
+ widget_type: gauge
+ entity: sensor.memory_use_percent
+ title: RAM
+ units: "%"
+ min: 0
+ max: 100
+ med_color: "00ff00"
+ low_color: "0000ff"
+ high_color: "ff0000"
+
 layout:
-    - clock(2x1), weather(2x2) 
+    - clock(2x1), weather(2x2)
     - alex_presence(1x1)
+    - cpu_use_gauge(1x1), disk_use_gauge(1x1), ram_use_gauge(1x1)

@@ -4,12 +4,13 @@
    - ads_percentage_today
    - unique_clients
    - clients_ever_seen
-- platform: yr
 - platform: systemmonitor
   resources:
    - type: disk_use_percent
+     arg: /
    - type: memory_use_percent
    - type: disk_use
+     arg: /
    - type: processor_use
 - platform: darksky
   api_key: !secret darksky_api_key
