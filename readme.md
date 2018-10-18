@@ -1,7 +1,7 @@
 This is my humble hass.io configuration repository. It is and will forever be a work in progress.  
 My main goal is to automate as much as posible to a near perfect level of efficiency.
 
-This readme will be gradually updatet.
+This readme will be gradually updated.
 
 ## Components
 All components are planned, nothing is currently bought or installed.
