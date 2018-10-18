@@ -24,3 +24,6 @@ AVM FRITZ!DECT 301
 
 **Camera**  
 Yi Technology Yi Dome
+
+## Floorplan
+![Image of floorplan](/images/floorplan.png)
