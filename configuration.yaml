@@ -70,7 +70,7 @@ tts:
 cloud:
 
 group: !include_dir_list groups
-automation: !include_dir_list automations
+automation: !include_dir_merge_list automations
 script: !include_dir_list scripts
 device_tracker: !include_dir_list device_tracker
 zone: !include_dir_list zones
@@ -86,3 +86,14 @@ panel_custom:
    sidebar_icon: mdi:home
    url_path: floorplan
    config: !include floorplan.yaml
+
+telegram_bot:
+ - platform: polling
+   api_key: !secret telegram_bot_api_key
+   allowed_chat_ids:
+    - !secret alex_telegram_chat_id
+
+notify:
+ - name: alex_telegram
+   platform: telegram
+   chat_id: !secret alex_telegram_chat_id

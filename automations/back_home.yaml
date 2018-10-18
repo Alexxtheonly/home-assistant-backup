@@ -1,0 +1,10 @@
+- alias: activate presence mode
+  trigger:
+   platform: state
+   entity_id: device_tracker.alexgalaxys6edge
+   from: 'not_home'
+   to: 'home'
+  action:
+   - service: notify.alex_telegram
+     data:
+      message: 'Welcome back home. Entering presence mode.'
