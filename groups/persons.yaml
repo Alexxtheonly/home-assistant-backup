@@ -1,0 +1,5 @@
+persons:
+ name: Persons
+ view: no
+ entities:
+  - device_tracker.alexgalaxys6edge

@@ -1,7 +1,7 @@
 - alias: activate standby mode after 10 minutes
   trigger:
    platform: state
-   entity_id: device_tracker.alexgalaxys6edge
+   entity_id: group.persons
    from: 'home'
    to: 'not_home'
    for:
@@ -9,4 +9,4 @@
   action:
    - service: notify.alex_telegram
      data:
-      message: 'You are not at home since 10 minutes. Entering stand by mode.'
+      message: 'Nobody at home since 10 minutes. Entering stand by mode.'

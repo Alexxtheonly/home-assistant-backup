@@ -13,9 +13,6 @@ homeassistant:
   # Customization file
   customize: !include customize.yaml
 
-# Show links to resources in log and frontend
-introduction:
-
 # Enables the frontend
 frontend:
 
@@ -45,7 +42,7 @@ conversation:
 history:
   include: 
     entities:
-       - device_tracker.alexgalaxys6edge
+       - group.persons
        - sensor.dark_sky_temperature
        - sensor.processor_use
        - sensor.memory_use_percent
@@ -66,10 +63,7 @@ sensor: !include_dir_list sensors
 tts:
   - platform: google
 
-# Cloud
-cloud:
-
-group: !include_dir_list groups
+group: !include_dir_merge_named groups
 automation: !include_dir_merge_list automations
 script: !include_dir_list scripts
 device_tracker: !include_dir_list device_tracker
@@ -93,7 +87,4 @@ telegram_bot:
    allowed_chat_ids:
     - !secret alex_telegram_chat_id
 
-notify:
- - name: alex_telegram
-   platform: telegram
-   chat_id: !secret alex_telegram_chat_id
+notify: !include_dir_list notify-platforms

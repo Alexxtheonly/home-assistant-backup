@@ -1,7 +1,7 @@
-- alias: activate presence mode
+- alias: Someone is at home
   trigger:
    platform: state
-   entity_id: device_tracker.alexgalaxys6edge
+   entity_id: group.persons
    from: 'not_home'
    to: 'home'
   action:

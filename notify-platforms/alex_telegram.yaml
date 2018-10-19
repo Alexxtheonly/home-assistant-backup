@@ -1,0 +1,3 @@
+name: alex_telegram
+platform: telegram
+chat_id: !secret alex_telegram_chat_id
