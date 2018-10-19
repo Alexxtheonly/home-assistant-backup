@@ -29,3 +29,4 @@ nest.conf
 ipchange.yaml
 production_auth.json
 .HA_VERSION
+.vs
