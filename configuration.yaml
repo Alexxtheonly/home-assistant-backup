@@ -88,3 +88,8 @@ telegram_bot:
     - !secret alex_telegram_chat_id
 
 notify: !include_dir_list notify-platforms
+
+zwave:
+ usb_path: /dev/ttyACM0
+ network_key: !secret zwave_key
+ polling_interval: 30000
