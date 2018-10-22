@@ -1,0 +1,4 @@
+livingRoomSensors:
+ name: Living room sensors
+ view: no
+ entities:

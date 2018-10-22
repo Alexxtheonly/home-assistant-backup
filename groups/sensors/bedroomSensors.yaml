@@ -1,0 +1,4 @@
+bedroomSensors:
+ name: Bedroom sensors
+ view: no
+ entities:

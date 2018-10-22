@@ -1,0 +1,4 @@
+allBathroomLights:
+ name: All bathroom lights
+ view: no
+ entities:

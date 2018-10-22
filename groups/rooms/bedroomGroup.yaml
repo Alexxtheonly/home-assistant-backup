@@ -1,0 +1,4 @@
+bedroomGroup:
+ name: Bedroom
+ view: yes
+ entities:

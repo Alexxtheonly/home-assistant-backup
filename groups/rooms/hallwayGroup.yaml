@@ -1,0 +1,4 @@
+hallwayGroup:
+ name: Hallway
+ view: yes
+ entities:

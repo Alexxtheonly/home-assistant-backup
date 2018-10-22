@@ -1,0 +1,4 @@
+kitchenGroup:
+ name: Kitchen
+ view: yes
+ entities:

@@ -1,0 +1,4 @@
+allWcLights:
+ name: All WC lights
+ view: no
+ entities:

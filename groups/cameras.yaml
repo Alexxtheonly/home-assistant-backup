@@ -1,0 +1,4 @@
+cameras:
+ name: Cameras
+ view: no
+ entities:

@@ -1,0 +1,4 @@
+allKitchenLights:
+ name: All kitchen lights
+ view: no
+ entities:

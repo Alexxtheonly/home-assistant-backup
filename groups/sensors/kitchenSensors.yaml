@@ -1,0 +1,4 @@
+kitchenSensors:
+ name: Kitchen sensors
+ view: no
+ entities:

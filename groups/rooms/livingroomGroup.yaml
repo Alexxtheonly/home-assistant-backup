@@ -1,0 +1,4 @@
+livingroomGroup:
+ name: Living room
+ view: yes
+ entities:

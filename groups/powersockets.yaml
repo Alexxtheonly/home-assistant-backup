@@ -1,0 +1,4 @@
+powersockets:
+ name: Power sockets
+ view: yes
+ entities:

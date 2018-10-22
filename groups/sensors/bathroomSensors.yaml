@@ -1,0 +1,4 @@
+bathroomSensors:
+ name: Bathroom sensors
+ view: no
+ entities:

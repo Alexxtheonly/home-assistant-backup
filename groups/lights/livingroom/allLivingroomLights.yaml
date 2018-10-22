@@ -1,0 +1,6 @@
+allLivingroomLights:
+ name: All living room lights
+ view: no
+ entities:
+  - groups.diningLights
+  - groups.livingroomMainLights
