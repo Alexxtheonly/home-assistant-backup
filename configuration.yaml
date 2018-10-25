@@ -40,12 +40,6 @@ conversation:
 
 # Enables support for tracking state changes over time
 history:
-  include: 
-    entities:
-       - group.persons
-       - sensor.dark_sky_temperature
-       - sensor.processor_use
-       - sensor.memory_use_percent
 
 # View all events in a logbook
 logbook:
@@ -93,3 +87,8 @@ zwave:
  usb_path: /dev/ttyACM0
  network_key: !secret zwave_key
  polling_interval: 30000
+
+switch:
+ - platform: tplink
+   name: Power socket 1
+   host: 192.168.178.69
