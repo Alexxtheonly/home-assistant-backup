@@ -1,0 +1,6 @@
+platform: yi
+name: Camera white
+host: '192.168.178.71'
+password: !secret yi_cam_white_password
+path: /tmp/sd/record
+ffmpeg_arguments: '-vf scale=800:450'

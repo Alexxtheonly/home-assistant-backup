@@ -92,3 +92,5 @@ switch:
  - platform: tplink
    name: Power socket 1
    host: 192.168.178.69
+
+camera: !include_dir_merge_named cameras
