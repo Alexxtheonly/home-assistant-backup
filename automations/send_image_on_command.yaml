@@ -1,0 +1,14 @@
+- alias: reply with image of cam0
+  trigger:
+   platform: event
+   event_type: telegram_command
+   event_data:
+    command: '/cam0'
+  action:
+   - service: camera.snapshot
+     data:
+      entity_id: camera.cam_0
+      filename: /share/snapshots/cam0.png
+   - service: telegram_bot.send_photo
+     data:
+      file: /share/snapshots/cam0.png

@@ -1,0 +1,5 @@
+service: camera.snapshot
+entity_id: camera.cam_0
+data: 
+ entity_id: camera.cam_0
+ filename: /share/snapshots/cam0.png

@@ -12,6 +12,8 @@ homeassistant:
   time_zone: !secret time_zone
   # Customization file
   customize: !include customize.yaml
+  whitelist_external_dirs:
+   - /share/snapshots
 
 # Enables the frontend
 frontend:
