@@ -13,7 +13,7 @@ homeassistant:
   # Customization file
   customize: !include customize.yaml
   whitelist_external_dirs:
-   - /share/snapshots
+   - !secret snapshot_location
 
 # Enables the frontend
 frontend:
