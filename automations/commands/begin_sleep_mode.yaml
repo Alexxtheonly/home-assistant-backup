@@ -1,0 +1,11 @@
+- alias: begin sleep mode
+  trigger:
+   platform: event
+   event_type: telegram_command
+   event_data:
+    command: '/sleep'
+  action:
+   - service: variable.set_variable
+     data:
+      variable: sleep_mode
+      value: true

@@ -65,10 +65,10 @@ script: !include_dir_list scripts
 device_tracker: !include_dir_list device_tracker
 zone: !include_dir_list zones
 
-mqtt:
- broker: core-mosquitto
- username: !secret mqtt_user
- password: !secret mqtt_password
+#mqtt:
+# broker: core-mosquitto
+# username: !secret mqtt_user
+# password: !secret mqtt_password
 
 panel_custom:
  - name: floorplan
@@ -96,3 +96,5 @@ switch:
    host: 192.168.178.69
 
 camera: !include_dir_merge_named cameras
+
+variable: !include_dir_merge_named variables
