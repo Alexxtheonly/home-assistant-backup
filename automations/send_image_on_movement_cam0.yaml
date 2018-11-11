@@ -3,6 +3,10 @@
    platform: state
    entity_id: binary_sensor.aeotec_zw100_multisensor_6_sensor_3
    to: 'on'
+  condition:
+   condition: state
+   entity_id: group.persons
+   state: 'not_home'
   action:
    - service: camera.snapshot
      data:
