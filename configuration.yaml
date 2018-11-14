@@ -98,3 +98,14 @@ switch:
 camera: !include_dir_merge_named cameras
 
 variable: !include_dir_merge_named variables
+
+influxdb:
+  host: localhost
+  port: 8086
+  database: homeassistant
+  username: homeassistant
+  password: !secret influx_db_password
+  max_retries: 3
+  default_measurement: state
+
+panel_iframe: !include_dir_merge_named iframe_panels
