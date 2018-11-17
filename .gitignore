@@ -30,3 +30,4 @@ ipchange.yaml
 production_auth.json
 .HA_VERSION
 .vs
+/node-red
