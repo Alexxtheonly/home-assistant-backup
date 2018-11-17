@@ -5,3 +5,8 @@ monitored_conditions:
  - upload
 hour:
  - 3
+minute:
+ - 0
+ - 15
+ - 30
+ - 45
