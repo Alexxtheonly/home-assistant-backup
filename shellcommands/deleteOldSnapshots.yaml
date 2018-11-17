@@ -1,0 +1,1 @@
+delete_old_snapshots: find /backup/* -mtime +30 -exec rm {} \;

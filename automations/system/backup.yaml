@@ -1,0 +1,10 @@
+- alias: daily backup
+  id: daily_backup_and_cleaning
+  trigger:
+   platform: time
+   at: '23:00:00'
+  action:
+   - service: hassio.snapshot_full
+     data_template:
+      name: Automated Backup {{ now().strftime('%Y-%m-%d') }}
+   - service: shell_command.delete_old_snapshots
