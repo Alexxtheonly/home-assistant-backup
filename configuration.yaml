@@ -113,6 +113,7 @@ influxdb:
     - group
     - media_player
     - persistent_notification
+    - sun
     - switch
     - zone
     - zwave
