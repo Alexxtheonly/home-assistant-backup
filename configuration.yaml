@@ -106,6 +106,16 @@ influxdb:
   password: !secret influx_db_password
   max_retries: 3
   default_measurement: state
+  exclude:
+   domains:
+    - automation
+    - camera
+    - group
+    - media_player
+    - persistent_notification
+    - switch
+    - zone
+    - zwave
 
 panel_iframe: !include_dir_merge_named iframe_panels
 
