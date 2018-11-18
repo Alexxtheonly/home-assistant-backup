@@ -5,7 +5,6 @@
    event_data:
     command: '/sleep'
   action:
-   - service: variable.set_variable
+   - service: input_boolean.toggle
      data:
-      variable: sleep_mode
-      value: true
+      entity_id: input_boolean.sleep_mode

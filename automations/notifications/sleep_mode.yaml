@@ -1,7 +1,7 @@
 - alias: 'sleep mode updated'
   trigger:
     - platform: state
-      entity_id: variable.sleep_mode
+      entity_id: input_boolean.sleep_mode
   action:
     - service: notify.alex_telegram   
       data_template:   

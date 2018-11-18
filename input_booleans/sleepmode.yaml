@@ -1,4 +1,3 @@
 sleep_mode:
  name: Sleep mode
- value: false
- restore: true
+ initial: off
