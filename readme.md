@@ -25,7 +25,7 @@ Aeon Labs AEOTEC Door/Window
 AVM FRITZ!DECT 301
 
 **Camera**  
-Yi Technology Yi Dome
+Tenvis T8810
 
 ## Floorplan
 ![Image of floorplan](/images/floorplan.png)
