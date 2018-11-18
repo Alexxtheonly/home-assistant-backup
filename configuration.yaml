@@ -114,6 +114,7 @@ influxdb:
     - camera
     - group
     - media_player
+    - updater
     - persistent_notification
     - sun
     - switch
