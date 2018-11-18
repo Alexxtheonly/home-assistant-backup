@@ -3,12 +3,12 @@ sensors:
  fritzbox_online:
   value_template: '{{ states.sensor.fritz_netmonitor.attributes["is_connected"] }}'
  fritzbox_uptime:
-  value_template: '{{ states.sensor.fritz_netmonitor.attributes["uptime"] | int }}'
+  value_template: '{{ states.sensor.fritz_netmonitor.attributes["uptime"] }}'
  fritzbox_bytes_sent:
-  value_template: '{{ states.sensor.fritz_netmonitor.attributes["bytes_sent"] | int }}'
+  value_template: '{{ states.sensor.fritz_netmonitor.attributes["bytes_sent"] }}'
  fritzbox_bytes_received:
-  value_template: '{{ states.sensor.fritz_netmonitor.attributes["bytes_received"] | int }}'
+  value_template: '{{ states.sensor.fritz_netmonitor.attributes["bytes_received"] }}'
  fritzbox_transmission_rate_up:
-  value_template: '{{ states.sensor.fritz_netmonitor.attributes["transmission_rate_up"] | int }}'
+  value_template: '{{ states.sensor.fritz_netmonitor.attributes["transmission_rate_up"] }}'
  fritzbox_transmission_rate_down:
-  value_template: '{{ states.sensor.fritz_netmonitor.attributes["transmission_rate_down"] | int }}'
+  value_template: '{{ states.sensor.fritz_netmonitor.attributes["transmission_rate_down"] }}'
