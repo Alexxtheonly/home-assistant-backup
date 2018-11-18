@@ -1,0 +1,14 @@
+platform: template
+sensors:
+ fritzbox_online:
+  value_template: '{{ states.sensor.fritz_netmonitor.attributes["is_connected"] }}'
+ fritzbox_uptime:
+  value_template: '{{ states.sensor.fritz_netmonitor.attributes["uptime"] | int }}'
+ fritzbox_bytes_sent:
+  value_template: '{{ states.sensor.fritz_netmonitor.attributes["bytes_sent"] | int }}'
+ fritzbox_bytes_received:
+  value_template: '{{ states.sensor.fritz_netmonitor.attributes["bytes_received"] | int }}'
+ fritzbox_transmission_rate_up:
+  value_template: '{{ states.sensor.fritz_netmonitor.attributes["transmission_rate_up"] | int }}'
+ fritzbox_transmission_rate_down:
+  value_template: '{{ states.sensor.fritz_netmonitor.attributes["transmission_rate_down"] | int }}'

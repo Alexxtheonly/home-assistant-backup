@@ -107,6 +107,8 @@ influxdb:
   max_retries: 3
   default_measurement: state
   exclude:
+   entities:
+    - sensor.fritz_netmonitor
    domains:
     - automation
     - camera
