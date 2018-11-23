@@ -58,6 +58,12 @@ sensor: !include_dir_list sensors
 #tts:
 #  - platform: google
 
+# Logger
+#logger:
+# default: error
+# logs:
+#  homeassistant.components.shell_command: debug
+
 group: !include_dir_merge_named groups
 automation: !include_dir_merge_list automations
 script: !include_dir_list scripts

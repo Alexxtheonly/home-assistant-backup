@@ -1,0 +1,1 @@
+record_cam: "ffmpeg -i {{ stream }} -vcodec copy -r 10 -t 30 /share/videos/{{ cam }}/{{ now().strftime('%Y%m%d%H%M%S') }}.mp4"
