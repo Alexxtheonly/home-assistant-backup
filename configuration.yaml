@@ -64,6 +64,9 @@ sensor: !include_dir_list sensors
 # logs:
 #  homeassistant.components.shell_command: debug
 
+system_log:
+ fire_event: true
+
 group: !include_dir_merge_named groups
 automation: !include_dir_merge_list automations
 script: !include_dir_list scripts
