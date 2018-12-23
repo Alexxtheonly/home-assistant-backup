@@ -27,7 +27,7 @@ AVM FRITZ!DECT 301
 **Camera**  
 Tenvis T8810
 
-**Flower monitor**
+**Flower monitor**  
 Xiaomi Mi Plant Flower Care
 
 ## Floorplan
@@ -57,6 +57,10 @@ Xiaomi Mi Plant Flower Care
 |Battery|sPo|
 |Moisture|sMi|
 |Fertilizer|sFe|
+|Ampere|sAm|
+|Watt|sWa|
+|TotalEnergy|sTo|
+|Voltage|sVo|
 
 ### Entitytypes
 
@@ -71,7 +75,8 @@ Xiaomi Mi Plant Flower Care
 
 ## Naming convention
 
-`RoomShort_EntityTypeShort_Sensor`  
+`Room_EntityType_(**)_Sensor`  
 
 Example:  
 `rLi_eMu_sLu` = Living room luminance
+`rLi_eSo_00_sWa` = Living room power socket 00 Watt
