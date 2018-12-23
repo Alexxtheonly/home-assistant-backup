@@ -27,5 +27,51 @@ AVM FRITZ!DECT 301
 **Camera**  
 Tenvis T8810
 
+**Flower monitor**
+Xiaomi Mi Plant Flower Care
+
 ## Floorplan
 ![Image of floorplan](/images/floorplan.png)
+
+## Abbreviations
+### Rooms
+|Name|Short|
+|---|---|
+|Living room|rLi|
+|Hallway|rHa|
+|Toilett|rTo|
+|Bathroom|rBa|
+|Bedroom|rBe|
+|Study|rSt|
+|Kitchen|rKi|
+
+### Sensors
+
+|Name|Short|
+|---|---|
+|Movement|sMo|
+|Luminance|sLu|
+|Humidity|sHu|
+|Temperature|sTe|
+|Ultraviolet|sUl|
+|Battery|sPo|
+|Moisture|sMi|
+|Fertilizer|sFe|
+
+### Entitytypes
+
+|Name|Short|
+|---|---|
+|Powersocket|eSo|
+|Multisensor|eMu|
+|DoorSensor|eDo
+|Light|eLi|
+|Flower|eFl|
+|Camera|eCa|
+
+## Naming convention
+
+`RoomShort_EntityTypeShort_Sensor`  
+
+Example:  
+`rLi_eMu_sLu` = Living room luminance
