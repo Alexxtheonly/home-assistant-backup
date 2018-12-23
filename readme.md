@@ -78,5 +78,5 @@ Xiaomi Mi Plant Flower Care
 `Room_EntityType_(**)_Sensor`  
 
 Example:  
-`rLi_eMu_sLu` = Living room luminance
+`rLi_eMu_sLu` = Living room luminance  
 `rLi_eSo_00_sWa` = Living room power socket 00 Watt
