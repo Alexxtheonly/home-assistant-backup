@@ -17,6 +17,7 @@ homeassistant:
 
 # Enables the frontend
 frontend:
+ themes: !include_dir_merge_named themes
 
 # Enables configuration UI
 config:
@@ -135,3 +136,6 @@ panel_iframe: !include_dir_merge_named iframe_panels
 binary_sensor: !include_dir_merge_named binarysensors
 
 shell_command: !include_dir_merge_named shellcommands
+
+lovelace:
+  mode: yaml
