@@ -1,4 +1,0 @@
-bathroomGroup:
- name: Bathroom
- view: yes
- entities:

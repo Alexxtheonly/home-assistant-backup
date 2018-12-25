@@ -1,4 +1,0 @@
-hallwaySensors:
- name: Hallway sensors
- view: no
- entities:

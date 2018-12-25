@@ -1,4 +1,0 @@
-wcSensors:
- name: WC Sensors
- view: no
- entities:

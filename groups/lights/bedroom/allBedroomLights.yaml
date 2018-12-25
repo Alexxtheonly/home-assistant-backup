@@ -1,4 +1,0 @@
-allBedroomLights:
- name: All bedroom lights
- view: no
- entities:

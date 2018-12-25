@@ -1,4 +1,0 @@
-allHallwayLights:
- name: All hallway lights
- view: no
- entities:
