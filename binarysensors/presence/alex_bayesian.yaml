@@ -1,0 +1,13 @@
+platform: bayesian
+name: alex_home
+prior: 0.4
+observations:
+ - entity_id: device_tracker.alexgalaxys6edge
+   prob_given_true: 0.9
+   platform: 'state'
+   to_state: 'home'
+ - entity_id: device_tracker.charge_2
+   prob_given_true: 0.4
+   prob_given_false: 0.1
+   platform: 'state'
+   to_state: 'home'
