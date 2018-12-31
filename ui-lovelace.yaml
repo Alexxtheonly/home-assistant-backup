@@ -37,3 +37,8 @@ views:
        - entity: sensor.memory_use_percent
          name: RAM usage
          icon: mdi:memory
+ - title: Alarm
+   path: alarm
+   cards:
+    - type: alarm-panel
+      entity: alarm_control_panel.home_alarm

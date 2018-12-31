@@ -1,0 +1,12 @@
+- alias: Trigger alarm while armed away
+  trigger:
+   - platform: state
+     entity_id: binary_sensor.aeotec_zw100_multisensor_6_sensor_2
+     to: 'on'
+  condition:
+   - condition: state
+     entity_id: alarm_control_panel.home_alarm
+     state: armed_away
+  action:
+   service: alarm_control_panel.alarm_trigger
+   entity_id: alarm_control_panel.home_alarm
