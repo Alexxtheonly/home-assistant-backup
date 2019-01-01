@@ -3,27 +3,11 @@ views:
  - title: Main
    path: main
    cards:
-    - type: vertical-stack
-      cards:
-       - type: picture-entity
-         entity: camera.cam_0
-         show_state: false
-         show_name: false
-       - type: glance
-         entities:
-          - entity: binary_sensor.aeotec_zw100_multisensor_6_sensor
-            name: Movement
-            icon: mdi:walk
-          - entity: sensor.aeotec_zw100_multisensor_6_relative_humidity
-            name: Humidity
-            icon: mdi:water-percent
-          - entity: sensor.aeotec_zw100_multisensor_6_luminance
-            name: Luminance
-            icon: mdi:weather-sunny
-          - entity: sensor.aeotec_zw100_multisensor_6_temperature
-            name: Temperature
-            icon: mdi:thermometer
+    - type: weather-forecast
+      entity: weather.dark_sky
+      name: Weather
     - type: glance
+      title: Pi
       entities:
        - entity: sensor.cpu_temperature
          name: CPU temperature
@@ -42,3 +26,27 @@ views:
    cards:
     - type: alarm-panel
       entity: alarm_control_panel.home_alarm
+ - title: Surveillance
+   path: surveillance
+   cards:
+    - type: picture-entity
+      entity: camera.cam_0
+      name: Room
+      show_state: false
+ - title: Bathroom
+   cards:
+    - type: glance
+      title: Bathroom
+      entities:
+       - entity: binary_sensor.aeotec_zw100_multisensor_6_sensor
+         name: Movement
+         icon: mdi:walk
+       - entity: sensor.aeotec_zw100_multisensor_6_relative_humidity
+         name: Humidity
+         icon: mdi:water-percent
+       - entity: sensor.aeotec_zw100_multisensor_6_luminance
+         name: Luminance
+         icon: mdi:weather-sunny
+       - entity: sensor.aeotec_zw100_multisensor_6_temperature
+         name: Temperature
+         icon: mdi:thermometer

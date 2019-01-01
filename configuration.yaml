@@ -53,6 +53,10 @@ map:
 sun:
 
 # Weather prediction
+weather:
+  - platform: darksky
+    api_key: !secret darksky_api_key
+
 sensor: !include_dir_list sensors
 
 # Text to speech
@@ -128,6 +132,7 @@ influxdb:
     - persistent_notification
     - sun
     - switch
+    - weather
     - zone
     - zwave
 
