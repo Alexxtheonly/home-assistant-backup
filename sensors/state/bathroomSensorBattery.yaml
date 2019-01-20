@@ -1,6 +1,6 @@
 platform: template
 sensors:
- rBa_eMu_sPo:
+ rba_emu_spo:
   value_template: '{% if states.zwave.rba_emu is not none %}
           {{ states.zwave.rba_emu.attributes.battery_level }}
           {% else %}

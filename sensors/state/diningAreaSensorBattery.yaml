@@ -1,6 +1,6 @@
 platform: template
 sensors:
- rLi_eMu_01_sPo:
+ rli_emu_01_spo:
   value_template: '{% if states.zwave.rli_emu_01 is not none %}
           {{ states.zwave.rli_emu_01.attributes.battery_level }}
           {% else %}
