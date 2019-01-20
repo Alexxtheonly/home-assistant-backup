@@ -11,7 +11,7 @@ views:
        - entity: sensor.cpu_temperature
          name: CPU temperature
          icon: mdi:raspberrypi
-       - entity: sensor.disk_use_percent_
+       - entity: sensor.disk_use_percent
          name: Disk usage
          icon: mdi:micro-sd
        - entity: sensor.processor_use
