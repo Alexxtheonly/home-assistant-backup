@@ -1,2 +1,2 @@
 platform: bluetooth_le_tracker
-track_new_devices: True
+track_new_devices: False

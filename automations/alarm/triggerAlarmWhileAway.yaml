@@ -1,7 +1,28 @@
 - alias: Trigger alarm while armed away
   trigger:
    - platform: state
-     entity_id: binary_sensor.aeotec_zw100_multisensor_6_sensor_2
+     entity_id: binary_sensor.rba_emu_smo
+     to: 'on'
+   - platform: state
+     entity_id: binary_sensor.rbe_emu_smo
+     to: 'on'
+   - platform: state
+     entity_id: binary_sensor.rha_edo
+     to: 'on'
+   - platform: state
+     entity_id: binary_sensor.rha_emu_smo
+     to: 'on'
+   - platform: state
+     entity_id: binary_sensor.rli_emu_00_smo
+     to: 'on'
+   - platform: state
+     entity_id: binary_sensor.rli_emu_01_smo
+     to: 'on'
+   - platform: state
+     entity_id: binary_sensor.rst_emu_smo
+     to: 'on'
+   - platform: state
+     entity_id: binary_sensor.rto_emu_smo
      to: 'on'
   condition:
    - condition: state

@@ -1,9 +1,0 @@
-platform: template
-sensors:
- battery_multisensor_sensor:
-  value_template: '{% if states.zwave.aeotec_zw100_multisensor_6 is not none %}
-          {{ states.zwave.aeotec_zw100_multisensor_6.attributes.battery_level }}
-          {% else %}
-            n/a
-          {% endif %}'
-  unit_of_measurement: '%'

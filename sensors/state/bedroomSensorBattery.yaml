@@ -1,0 +1,9 @@
+platform: template
+sensors:
+ rBe_eMu_sPo:
+  value_template: '{% if states.zwave.rBe_emu is not none %}
+          {{ states.zwave.rBe_emu.attributes.battery_level }}
+          {% else %}
+            n/a
+          {% endif %}'
+  unit_of_measurement: '%'
