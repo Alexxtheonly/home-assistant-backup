@@ -32,20 +32,152 @@ views:
       entity: camera.cam_0
       name: Room
       show_state: false
+    - type: glance
+      title: Movement
+      entities:
+       - entity: binary_sensor.rha_emu_smo
+         name: Hallway
+         icon: mdi:walk
+       - entity: binary_sensor.rst_emu_smo
+         name: Study
+         icon: mdi:walk
+       - entity: binary_sensor.rbe_emu_smo
+         name: Bedroom
+         icon: mdi:walk
+       - entity: binary_sensor.rba_emu_smo
+         name: Bathroom
+         icon: mdi:walk
+       - entity: binary_sensor.rli_emu_00_smo
+         name: Living area
+         icon: mdi:walk
+       - entity: binary_sensor.rli_emu_01_smo
+         name: Dining area
+         icon: mdi:walk
+       - entity: binary_sensor.rto_emu_smo
+         name: Toilett
+         icon: mdi:walk
+    - type: glance
+      title: Doors
+      entities:
+       - entity: binary_sensor.rha_edo
+         name: Main door
+         icon: mdi:door
  - title: Bathroom
    cards:
     - type: glance
       title: Bathroom
       entities:
-       - entity: binary_sensor.aeotec_zw100_multisensor_6_sensor
+       - entity: binary_sensor.rba_emu_smo
          name: Movement
          icon: mdi:walk
-       - entity: sensor.aeotec_zw100_multisensor_6_relative_humidity
+       - entity: sensor.rba_emu_shu
          name: Humidity
          icon: mdi:water-percent
-       - entity: sensor.aeotec_zw100_multisensor_6_luminance
+       - entity: sensor.rba_emu_slu
          name: Luminance
          icon: mdi:weather-sunny
-       - entity: sensor.aeotec_zw100_multisensor_6_temperature
+       - entity: sensor.rba_emu_ste
+         name: Temperature
+         icon: mdi:thermometer
+ - title: Bedroom
+   cards:
+    - type: glance
+      title: Bedroom
+      entities:
+       - entity: binary_sensor.rbe_emu_smo
+         name: Movement
+         icon: mdi:walk
+       - entity: sensor.rbe_emu_shu
+         name: Humidity
+         icon: mdi:water-percent
+       - entity: sensor.rbe_emu_slu
+         name: Luminance
+         icon: mdi:weather-sunny
+       - entity: sensor.rbe_emu_ste
+         name: Temperature
+         icon: mdi:thermometer
+ - title: Study
+   cards:
+    - type: glance
+      title: Study
+      entities:
+       - entity: binary_sensor.rst_emu_smo
+         name: Movement
+         icon: mdi:walk
+       - entity: sensor.rst_emu_shu
+         name: Humidity
+         icon: mdi:water-percent
+       - entity: sensor.rst_emu_slu
+         name: Luminance
+         icon: mdi:weather-sunny
+       - entity: sensor.rst_emu_ste
+         name: Temperature
+         icon: mdi:thermometer
+ - title: Toilett
+   cards:
+    - type: glance
+      title: Toilett
+      entities:
+       - entity: binary_sensor.rto_emu_smo
+         name: Movement
+         icon: mdi:walk
+       - entity: sensor.rto_emu_shu
+         name: Humidity
+         icon: mdi:water-percent
+       - entity: sensor.rto_emu_slu
+         name: Luminance
+         icon: mdi:weather-sunny
+       - entity: sensor.rto_emu_ste
+         name: Temperature
+         icon: mdi:thermometer
+ - title: Hallway
+   cards:
+    - type: glance
+      title: Hallway
+      entities:
+       - entity: binary_sensor.rha_emu_smo
+         name: Movement
+         icon: mdi:walk
+       - entity: sensor.rha_emu_shu
+         name: Humidity
+         icon: mdi:water-percent
+       - entity: sensor.rha_emu_slu
+         name: Luminance
+         icon: mdi:weather-sunny
+       - entity: sensor.rha_emu_ste
+         name: Temperature
+         icon: mdi:thermometer
+ - title: Living area
+   cards:
+    - type: glance
+      title: Living area
+      entities:
+       - entity: binary_sensor.rli_emu_00_smo
+         name: Movement
+         icon: mdi:walk
+       - entity: sensor.rli_emu_shu
+         name: Humidity
+         icon: mdi:water-percent
+       - entity: sensor.rli_emu_00_slu
+         name: Luminance
+         icon: mdi:weather-sunny
+       - entity: sensor.rli_emu_00_ste
+         name: Temperature
+         icon: mdi:thermometer
+ - title: Dining area
+   cards:
+    - type: glance
+      title: Dining area
+      entities:
+       - entity: binary_sensor.rli_emu_01_smo
+         name: Movement
+         icon: mdi:walk
+       - entity: sensor.rli_emu_01_shu
+         name: Humidity
+         icon: mdi:water-percent
+       - entity: sensor.rli_emu_01_slu
+         name: Luminance
+         icon: mdi:weather-sunny
+       - entity: sensor.rli_emu_01_ste
          name: Temperature
          icon: mdi:thermometer
