@@ -1,3 +1,0 @@
-platform: ffmpeg
-name: Cam 0
-input: rtsp://admin:WOVKh9@192.168.178.72:554/11

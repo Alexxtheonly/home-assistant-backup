@@ -1,0 +1,14 @@
+platform: template
+sensors:
+ washing_machine_current_a:
+  value_template: '{{ states.switch.washing_machine.attributes["current_a"] | float }}'
+  unit_of_measurement: 'A'
+ washing_machine_current_power_w:
+   value_template: '{{ states.switch.washing_machine.attributes["current_power_w"] | float }}'
+   unit_of_measurement: 'W'
+ washing_machine_total_energy_kwh:
+  value_template: '{{ states.switch.washing_machine.attributes["total_energy_kwh"] | float }}'
+  unit_of_measurement: 'kWh'
+ washing_machine_voltage:
+   value_template: '{{ states.switch.washing_machine.attributes["voltage"] | float }}'
+   unit_of_measurement: 'V'

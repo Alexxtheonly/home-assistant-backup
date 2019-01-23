@@ -1,4 +1,4 @@
 grafana:
  title: Grafana
  icon: mdi:chart-timeline
- url: https://192.168.178.68:3000
+ url: http://192.168.179.22:3000
