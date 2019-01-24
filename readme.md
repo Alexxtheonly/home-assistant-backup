@@ -72,6 +72,7 @@ Xiaomi Mi Plant Flower Care
 |Light|eLi|
 |Flower|eFl|
 |Camera|eCa|
+|Thermostat|eTh|
 
 ## Naming convention
 

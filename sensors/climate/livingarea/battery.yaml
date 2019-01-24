@@ -1,0 +1,9 @@
+platform: template
+sensors:
+ rli_eth_00_spo:
+  value_template: '{% if states.climate.living_area is not none %}
+          {{ states.climate.living_area.attributes.battery_level }}
+          {% else %}
+            n/a
+          {% endif %}'
+  unit_of_measurement: '%'

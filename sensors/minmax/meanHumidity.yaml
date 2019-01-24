@@ -1,0 +1,11 @@
+platform: min_max
+type: mean
+name: Average apartment humidity
+entity_ids:
+ - sensor.rba_emu_shu
+ - sensor.rbe_emu_shu
+ - sensor.rha_emu_shu
+ - sensor.rli_emu_01_shu
+ - sensor.rli_emu_shu
+ - sensor.rst_emu_shu
+ - sensor.rto_emu_shu

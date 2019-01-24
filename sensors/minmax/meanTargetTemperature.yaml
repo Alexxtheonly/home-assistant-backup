@@ -1,0 +1,10 @@
+platform: min_max
+type: mean
+name: Average thermostat target temperature
+entity_ids:
+ - sensor.rba_eth_target_temperature
+ - sensor.rbe_eth_target_temperature
+ - sensor.rki_eth_target_temperature
+ - sensor.rli_eth_00_target_temperature
+ - sensor.rli_eth_01_target_temperature
+ - sensor.rst_eth_target_temperature

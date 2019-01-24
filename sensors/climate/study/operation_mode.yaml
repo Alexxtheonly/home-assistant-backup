@@ -1,0 +1,8 @@
+platform: template
+sensors:
+ rst_eth_operation_mode:
+  value_template: '{% if states.climate.study is not none %}
+          {{ states.climate.study.attributes.operation_mode }}
+          {% else %}
+            n/a
+          {% endif %}'

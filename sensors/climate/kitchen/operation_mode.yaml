@@ -1,0 +1,8 @@
+platform: template
+sensors:
+ rki_eth_operation_mode:
+  value_template: '{% if states.climate.kitchen is not none %}
+          {{ states.climate.kitchen.attributes.operation_mode }}
+          {% else %}
+            n/a
+          {% endif %}'

@@ -1,0 +1,9 @@
+platform: template
+sensors:
+ rli_eth_01_current_temperature:
+  value_template: '{% if states.climate.dining_area is not none %}
+          {{ states.climate.dining_area.attributes.current_temperature }}
+          {% else %}
+            n/a
+          {% endif %}'
+  unit_of_measurement: '°C'

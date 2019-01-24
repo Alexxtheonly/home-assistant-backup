@@ -1,0 +1,8 @@
+platform: template
+sensors:
+ rli_eth_00_operation_mode:
+  value_template: '{% if states.climate.living_area is not none %}
+          {{ states.climate.living_area.attributes.operation_mode }}
+          {% else %}
+            n/a
+          {% endif %}'

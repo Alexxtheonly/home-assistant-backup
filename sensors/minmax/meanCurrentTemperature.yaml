@@ -1,0 +1,10 @@
+platform: min_max
+type: mean
+name: Average thermostat current temperature
+entity_ids:
+ - sensor.rba_eth_current_temperature
+ - sensor.rbe_eth_current_temperature
+ - sensor.rki_eth_current_temperature
+ - sensor.rli_eth_00_current_temperature
+ - sensor.rli_eth_01_current_temperature
+ - sensor.rst_eth_current_temperature

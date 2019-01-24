@@ -1,0 +1,9 @@
+platform: template
+sensors:
+ rbe_eth_target_temperature:
+  value_template: '{% if states.climate.bedroom is not none %}
+          {{ states.climate.bedroom.attributes.temperature }}
+          {% else %}
+            n/a
+          {% endif %}'
+  unit_of_measurement: '°C'

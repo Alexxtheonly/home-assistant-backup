@@ -1,0 +1,8 @@
+platform: template
+sensors:
+ rba_eth_operation_mode:
+  value_template: '{% if states.climate.bathroom is not none %}
+          {{ states.climate.bathroom.attributes.operation_mode }}
+          {% else %}
+            n/a
+          {% endif %}'

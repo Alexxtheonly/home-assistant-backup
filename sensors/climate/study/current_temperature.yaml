@@ -1,0 +1,9 @@
+platform: template
+sensors:
+ rst_eth_current_temperature:
+  value_template: '{% if states.climate.study is not none %}
+          {{ states.climate.study.attributes.current_temperature }}
+          {% else %}
+            n/a
+          {% endif %}'
+  unit_of_measurement: '°C'

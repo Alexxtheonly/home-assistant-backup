@@ -1,0 +1,8 @@
+platform: template
+sensors:
+ rba_eth_window_open:
+  value_template: '{% if states.climate.bathroom is not none %}
+          {{ states.climate.bathroom.attributes.window_open }}
+          {% else %}
+            n/a
+          {% endif %}'

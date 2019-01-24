@@ -1,0 +1,9 @@
+platform: template
+sensors:
+ rki_eth_current_temperature:
+  value_template: '{% if states.climate.kitchen is not none %}
+          {{ states.climate.kitchen.attributes.current_temperature }}
+          {% else %}
+            n/a
+          {% endif %}'
+  unit_of_measurement: '°C'

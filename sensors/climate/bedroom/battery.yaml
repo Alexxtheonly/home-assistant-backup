@@ -1,0 +1,9 @@
+platform: template
+sensors:
+ rbe_eth_spo:
+  value_template: '{% if states.climate.bedroom is not none %}
+          {{ states.climate.bedroom.attributes.battery_level }}
+          {% else %}
+            n/a
+          {% endif %}'
+  unit_of_measurement: '%'

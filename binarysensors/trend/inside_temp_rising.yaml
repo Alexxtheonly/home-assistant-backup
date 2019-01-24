@@ -1,0 +1,7 @@
+platform: trend
+sensors:
+ inside_temperature_rising:
+  entity_id: ensor.average_apartment_temperature
+  sample_duration: 7200
+  min_gradient: 1.39
+  device_class: heat

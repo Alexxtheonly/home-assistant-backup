@@ -1,0 +1,9 @@
+platform: template
+sensors:
+ rst_eth_spo:
+  value_template: '{% if states.climate.study is not none %}
+          {{ states.climate.study.attributes.battery_level }}
+          {% else %}
+            n/a
+          {% endif %}'
+  unit_of_measurement: '%'

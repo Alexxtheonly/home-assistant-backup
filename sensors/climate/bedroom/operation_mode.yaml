@@ -1,0 +1,8 @@
+platform: template
+sensors:
+ rbe_eth_operation_mode:
+  value_template: '{% if states.climate.bedroom is not none %}
+          {{ states.climate.bedroom.attributes.operation_mode }}
+          {% else %}
+            n/a
+          {% endif %}'

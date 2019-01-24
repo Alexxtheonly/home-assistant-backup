@@ -1,0 +1,8 @@
+platform: template
+sensors:
+ rli_eth_01_window_open:
+  value_template: '{% if states.climate.dining_area is not none %}
+          {{ states.climate.dining_area.attributes.window_open }}
+          {% else %}
+            n/a
+          {% endif %}'
