@@ -1,8 +1,8 @@
 platform: trend
 sensors:
- inside_temperature_rising:
+ inside_temperature_falling:
   entity_id: sensor.average_apartment_temperature
   sample_duration: 1800
   max_samples: 12
-  min_gradient: 0.00041
-  device_class: heat
+  min_gradient: -0.00041
+  device_class: cold

@@ -1,0 +1,8 @@
+platform: trend
+sensors:
+ bathroom_humidity_rising:
+  entity_id: sensor.rba_emu_shu
+  sample_duration: 2100
+  min_gradient: 0.00095
+  max_samples: 4
+  device_class: moisture
