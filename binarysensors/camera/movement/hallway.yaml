@@ -1,0 +1,4 @@
+platform: template
+sensors:
+ hallway_camera_movement:
+  value_template: '{{ states.input_boolean.hallway_camera_motion }}'

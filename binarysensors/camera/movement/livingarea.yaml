@@ -1,0 +1,4 @@
+platform: template
+sensors:
+ livingarea_camera_movement:
+  value_template: '{{ states.input_boolean.livingarea_camera_motion }}'

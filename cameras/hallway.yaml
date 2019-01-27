@@ -1,3 +1,0 @@
-platform: ffmpeg
-name: hallway
-input: rtsp://admin:camCam@192.168.179.23:554/11

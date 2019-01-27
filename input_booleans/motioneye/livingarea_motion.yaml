@@ -1,0 +1,4 @@
+livingarea_camera_motion:
+ name: Living area camera motion
+ initial: off
+ icon: mdi:walk

@@ -1,0 +1,4 @@
+hallway_camera_motion:
+ name: Hallway camera motion
+ initial: off
+ icon: mdi:walk
