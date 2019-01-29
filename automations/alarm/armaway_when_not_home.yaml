@@ -4,14 +4,14 @@
      entity_id: group.persons
      to: 'not home'
   condition:
-   - condition: or
-     conditions:
-      - condition: state
-        entity_id: alarm_control_panel.home_alarm
-        state: disarmed
-      - condition: state
-        entity_id: alarm_control_panel.home_alarm
-        state: pending
+    condition: or
+    conditions:
+     - condition: state
+       entity_id: alarm_control_panel.home_alarm
+       state: disarmed
+     - condition: state
+       entity_id: alarm_control_panel.home_alarm
+       state: pending
   action:
    service: alarm_control_panel.alarm_arm_away
    entity_id: alarm_control_panel.home_alarm

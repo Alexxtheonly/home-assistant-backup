@@ -2,4 +2,4 @@ persons:
  name: Persons
  view: no
  entities:
-  - device_tracker.alexgalaxys6edge
+  - device_tracker.galaxy_s6_edge

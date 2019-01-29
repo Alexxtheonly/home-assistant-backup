@@ -1,0 +1,9 @@
+- alias: Set heat when home
+  trigger:
+   - platform: state
+     entity_id: group.persons
+     to: 'home'
+  action:
+    - service: climate.set_operation_mode
+      data:
+        operation_mode: heat

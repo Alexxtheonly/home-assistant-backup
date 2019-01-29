@@ -1,0 +1,9 @@
+- alias: Set eco when not home
+  trigger:
+   - platform: state
+     entity_id: group.persons
+     to: 'not home'
+  action:
+    - service: climate.set_operation_mode
+      data:
+        operation_mode: eco
