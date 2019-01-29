@@ -6,4 +6,5 @@
   action:
     - service: climate.set_operation_mode
       data:
+        entity_id: "all"
         operation_mode: heat
