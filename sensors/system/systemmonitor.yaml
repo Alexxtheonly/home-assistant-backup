@@ -6,3 +6,4 @@ resources:
  - type: disk_use
    arg: /
  - type: processor_use
+ - type: memory_use
