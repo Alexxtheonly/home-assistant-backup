@@ -1,0 +1,6 @@
+platform: mold_indicator
+name: rba_smi
+indoor_temp_sensor: sensor.rba_emu_ste
+indoor_humidity_sensor: sensor.rba_emu_shu
+outdoor_temp_sensor: sensor.dark_sky_temperature
+calibration_factor: 1.577

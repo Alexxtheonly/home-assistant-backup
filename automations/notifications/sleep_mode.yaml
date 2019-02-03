@@ -1,8 +1,0 @@
-- alias: 'sleep mode updated'
-  trigger:
-    - platform: state
-      entity_id: input_boolean.sleep_mode
-  action:
-    - service: notify.alex_telegram   
-      data_template:   
-        message: 'Sleep mode changed to {{ trigger.to_state.state }}'

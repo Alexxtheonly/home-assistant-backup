@@ -1,0 +1,14 @@
+- alias: 'Telegram send snapshots'
+  trigger:
+   platform: event
+   event_type: telegram_callback
+   event_data:
+    data: '/camSnaps'
+  action:
+   - service: telegram_bot.send_photo
+     data:
+      file: '/share/snapshots/camera.living_area.jpg'
+   - service: telegram_bot.send_photo
+     data:
+      file: '/share/snapshots/camera.hallway.jpg'
+        

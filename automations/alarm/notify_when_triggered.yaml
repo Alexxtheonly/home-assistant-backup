@@ -1,0 +1,12 @@
+- alias: 'Send notification when alarm triggered'
+  trigger:
+   - platform: state
+     entity_id: alarm_control_panel.home_alarm
+     to: 'triggered'
+  action:
+   - service: notify.alex_telegram
+     data:
+      message: 'Alarm triggered!'
+      data:
+       inline_keyboard: 
+        - 'Disarm:/disarmAlarm, Send snapshots:/camSnaps'

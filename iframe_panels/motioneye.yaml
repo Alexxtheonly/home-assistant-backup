@@ -1,4 +1,4 @@
 motioneye:
  title: MotionEye
  icon: mdi:cctv
- url: http://192.168.179.22:8765
+ url: http://192.168.179.30:8765

@@ -1,0 +1,6 @@
+platform: mold_indicator
+name: rli_01_smi
+indoor_temp_sensor: sensor.rli_emu_01_ste
+indoor_humidity_sensor: sensor.rli_emu_01_shu
+outdoor_temp_sensor: sensor.dark_sky_temperature
+calibration_factor: 1.633

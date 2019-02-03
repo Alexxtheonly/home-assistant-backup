@@ -2,7 +2,7 @@
   trigger:
    - platform: state
      entity_id: group.persons
-     to: 'not home'
+     to: 'not_home'
   action:
     - service: climate.set_operation_mode
       data:
