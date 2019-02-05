@@ -1,0 +1,1 @@
+toggle_motion_detection: "curl http://{{ ip }}:7999/{{ cam }}/detection/{{ action }}"

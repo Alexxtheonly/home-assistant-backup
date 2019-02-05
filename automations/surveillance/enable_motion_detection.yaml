@@ -1,0 +1,22 @@
+- alias: Enable motion detection when armed
+  trigger:
+   - platform: state
+     entity_id: alarm_control_panel.home_alarm
+     to: armed_away
+   - platform: state
+     entity_id: alarm_control_panel.home_alarm
+     to: armed_home
+   - platform: state
+     entity_id: alarm_control_panel.home_alarm
+     to: armed_night
+  action:
+   - service: shell_command.toggle_motion_detection
+     data:
+      ip: !secret hassio_ip
+      cam: 1
+      action: start
+   - service: shell_command.toggle_motion_detection
+     data:
+      ip: !secret hassio_ip
+      cam: 2
+      action: start
