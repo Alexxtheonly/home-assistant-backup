@@ -109,6 +109,24 @@ camera: !include_dir_list cameras
 
 input_boolean: !include_dir_merge_named input_booleans
 
+recorder:
+ purge_keep_days: 1
+ exclude:
+  entities:
+   - sensor.fritz_netmonitor
+  domains:
+   - automation
+   - camera
+   - group
+   - media_player
+   - updater
+   - persistent_notification
+   - sun
+   - switch
+   - weather
+   - zone
+   - zwave
+
 influxdb:
   host: localhost
   port: 8086
