@@ -1,0 +1,8 @@
+platform: template
+sensors:
+ light_bedroom_color_temp:
+  value_template: "{% if is_state('light.bedroom', 'on') %}
+          {{ states.light.bedroom.attributes.color_temp | int }}
+          {% else %}
+            n/a
+          {% endif %}"
