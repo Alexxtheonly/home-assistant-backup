@@ -175,3 +175,10 @@ fritzbox:
    - host: 192.168.179.1
      username: smart
      password: a1b2c3d4
+
+speedtestdotnet:
+ monitored_conditions:
+  - ping
+  - download
+  - upload
+ scan_interval: '01:00'
