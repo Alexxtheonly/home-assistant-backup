@@ -1,0 +1,53 @@
+platform: bayesian
+prior: 0.33
+name: sleep
+probability_threshold: 0.95
+observations:
+ - platform: state
+   entity_id: group.persons
+   to_state: 'on'
+   prob_given_true: 0.99
+   prob_given_false: 0.5
+ - platform: state
+   entity_id: binary_sensor.rba_emu_smo
+   to_state: 'off'
+   prob_given_true: 0.6
+   prob_given_false: 0.8
+ - platform: state
+   entity_id: binary_sensor.rbe_emu_smo
+   to_state: 'off'
+   prob_given_true: 0.5
+ - platform: state
+   entity_id: binary_sensor.rha_emu_smo
+   to_state: 'off'
+   prob_given_true: 0.6
+   prob_given_false: 0.8
+ - platform: state
+   entity_id: binary_sensor.rli_emu_00_smo
+   to_state: 'off'
+   prob_given_true: 0.6
+   prob_given_false: 0.8
+ - platform: state
+   entity_id: binary_sensor.rli_emu_01_smo
+   to_state: 'off'
+   prob_given_true: 0.6
+   prob_given_false: 0.8
+ - platform: state
+   entity_id: binary_sensor.rst_emu_smo
+   to_state: 'off'
+   prob_given_true: 0.6
+   prob_given_false: 0.8
+ - platform: state
+   entity_id: binary_sensor.rto_emu_smo
+   to_state: 'off'
+   prob_given_true: 0.6
+   prob_given_false: 0.8
+ - platform: state
+   entity_id: alarm_control_panel.home_alarm
+   to_state: 'armed_night'
+   prob_given_true: 0.9
+ - platform: state
+   entity_id: 'sensor.sun'
+   to_state: 'below_horizon'
+   prob_given_true: 0.9
+   prob_given_false: 0.2
