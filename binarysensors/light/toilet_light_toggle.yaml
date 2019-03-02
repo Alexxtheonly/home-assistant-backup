@@ -1,6 +1,6 @@
 platform: bayesian
 prior: 0.1
-name: hallway_light_toggle
+name: toilet_light_toggle
 probability_threshold: 0.85
 observations:
  - entity_id: sun.sun
@@ -8,13 +8,13 @@ observations:
    to_state: 'below_horizon'
    prob_given_true: 0.4
    prob_given_false: 0.1
- - entity_id: binary_sensor.rha_emu_smo
+ - entity_id: binary_sensor.rto_emu_smo
    platform: 'state'
    to_state: 'on'
    prob_given_true: 0.8
    prob_given_false: 0.05
- - entity_id: sensor.rha_emu_slu
+ - entity_id: sensor.rto_emu_slu
    platform: 'numeric_state'
-   above: 10
+   above: 100
    prob_given_true: 0.1
    prob_given_false: 0.4

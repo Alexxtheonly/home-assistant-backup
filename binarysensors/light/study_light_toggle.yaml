@@ -15,6 +15,6 @@ observations:
    prob_given_false: 0.05
  - entity_id: sensor.rst_emu_slu
    platform: 'numeric_state'
-   above: 45
+   above: 30
    prob_given_true: 0.1
    prob_given_false: 0.4

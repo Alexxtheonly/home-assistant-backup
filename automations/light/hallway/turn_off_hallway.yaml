@@ -1,0 +1,9 @@
+- alias: Turn off hallway
+  trigger:
+   - platform: state
+     entity_id: binary_sensor.hallway_light_toggle
+     to: 'off'
+  action:
+   service: light.turn_off
+   data:
+    entity_id: light.hallway0, light.hallway1
