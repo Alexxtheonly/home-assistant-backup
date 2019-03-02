@@ -1,0 +1,11 @@
+- alias: 'Telegram disarm arm away'
+  trigger:
+   platform: event
+   event_type: telegram_callback
+   event_data:
+    data: '/armAway'
+  action:
+   service: alarm_control_panel.alarm_arm_away
+   entity_id: alarm_control_panel.home_alarm
+   data:
+    code: !secret alarm_code

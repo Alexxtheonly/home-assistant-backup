@@ -9,4 +9,4 @@
       message: 'Alarm triggered!'
       data:
        inline_keyboard: 
-        - 'Disarm:/disarmAlarm, Send snapshots:/camSnaps'
+        - 'Disarm:/disarmAlarm, Send snapshots:/camSnaps, Arm away:/armAway'
