@@ -1,0 +1,10 @@
+- alias: Dining area movement
+  trigger:
+   - platform: state
+     entity_id: binary_sensor.rli_emu_01_smo
+     to: 'on'
+  action:
+   - service: input_text.set_value
+     data:
+      entity_id: input_text.last_movement
+      value: 'Dining area'

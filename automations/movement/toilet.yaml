@@ -1,0 +1,10 @@
+- alias: Toilet movement
+  trigger:
+   - platform: state
+     entity_id: binary_sensor.rto_emu_smo
+     to: 'on'
+  action:
+   - service: input_text.set_value
+     data:
+      entity_id: input_text.last_movement
+      value: 'Toilet'

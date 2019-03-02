@@ -1,0 +1,10 @@
+- alias: Living area movement
+  trigger:
+   - platform: state
+     entity_id: binary_sensor.rli_emu_00_smo
+     to: 'on'
+  action:
+   - service: input_text.set_value
+     data:
+      entity_id: input_text.last_movement
+      value: 'Living area'
