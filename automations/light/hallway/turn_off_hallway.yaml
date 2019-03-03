@@ -3,6 +3,12 @@
    - platform: state
      entity_id: binary_sensor.hallway_light_toggle
      to: 'off'
+   - platform: state
+     entity_id: binary_sensor.rha_edo
+     to: 'off'
+     for: 
+      minutes: 1
+      seconds: 30
   action:
    service: light.turn_off
    data:

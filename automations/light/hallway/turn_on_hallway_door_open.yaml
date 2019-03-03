@@ -1,0 +1,13 @@
+- alias: Turn on hallway when door is open
+  trigger:
+   - platform: state
+     entity_id: binary_sensor.rha_edo
+     to: 'on'
+  condition:
+   condition: numeric_state
+   entity_id: sensor.rha_emu_slu
+   below: 10
+  action:
+   service: light.turn_on
+   data:
+    entity_id: light.hallway0, light.hallway1
