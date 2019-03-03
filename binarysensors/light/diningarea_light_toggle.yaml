@@ -6,15 +6,12 @@ observations:
  - entity_id: sun.sun
    platform: 'state'
    to_state: 'below_horizon'
-   prob_given_true: 0.4
-   prob_given_false: 0.1
+   prob_given_true: 0.5
  - entity_id: binary_sensor.rli_emu_01_smo
    platform: 'state'
    to_state: 'on'
    prob_given_true: 0.8
-   prob_given_false: 0.05
  - entity_id: sensor.rli_emu_01_slu
    platform: 'numeric_state'
-   above: 45
-   prob_given_true: 0.1
-   prob_given_false: 0.4
+   below: 45
+   prob_given_true: 0.5
