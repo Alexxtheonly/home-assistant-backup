@@ -1,6 +1,6 @@
 platform: template
 sensors:
- light_study_color_temp:
+ light_hallway0_color_temp:
   value_template: "{% if is_state('light.hallway0', 'on') %}
           {{ states.light.hallway0.attributes.color_temp | int }}
           {% else %}

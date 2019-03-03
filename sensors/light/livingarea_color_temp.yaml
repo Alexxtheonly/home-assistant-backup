@@ -1,6 +1,6 @@
 platform: template
 sensors:
- light_study_color_temp:
+ light_livingarea_color_temp:
   value_template: "{% if is_state('light.livingarea', 'on') %}
           {{ states.light.livingarea.attributes.color_temp | int }}
           {% else %}
