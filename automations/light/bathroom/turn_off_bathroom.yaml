@@ -1,7 +1,7 @@
 - alias: Turn off bathroom
   trigger:
    - platform: state
-     entity_id: binary_sensor.bathroom_light_toggle
+     entity_id: binary_sensor.rba_emu_smo
      to: 'off'
   action:
    service: light.turn_off

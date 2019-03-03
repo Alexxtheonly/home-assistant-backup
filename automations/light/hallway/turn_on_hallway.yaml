@@ -1,12 +1,15 @@
 - alias: Turn on hallway
   trigger:
    - platform: state
-     entity_id: binary_sensor.hallway_light_toggle
+     entity_id: binary_sensor.rha_emu_smo
      to: 'on'
   condition:
-   condition: state
-   entity_id: group.persons
-   state: 'home'
+   - condition: state
+     entity_id: group.persons
+     state: 'home'
+   - condition: numeric_state
+     entity_id: sensor.rha_emu_slu
+     below: 10
   action:
    service: light.turn_on
    data:

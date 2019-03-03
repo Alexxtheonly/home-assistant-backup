@@ -1,12 +1,15 @@
 - alias: Turn on living area
   trigger:
    - platform: state
-     entity_id: binary_sensor.livingarea_light_toggle
+     entity_id: binary_sensor.rli_emu_00_smo
      to: 'on'
   condition:
-   condition: state
-   entity_id: group.persons
-   state: 'home'
+   - condition: state
+     entity_id: group.persons
+     state: 'home'
+   - condition: numeric_state
+     entity_id: sensor.rli_emu_00_slu
+     below: 40
   action:
    service: light.turn_on
    data:

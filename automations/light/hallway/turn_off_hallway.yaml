@@ -1,7 +1,7 @@
 - alias: Turn off hallway
   trigger:
    - platform: state
-     entity_id: binary_sensor.hallway_light_toggle
+     entity_id: binary_sensor.rha_emu_smo
      to: 'off'
    - platform: state
      entity_id: binary_sensor.rha_edo

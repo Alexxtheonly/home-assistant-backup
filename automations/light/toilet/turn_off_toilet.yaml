@@ -1,7 +1,7 @@
 - alias: Turn off toilet
   trigger:
    - platform: state
-     entity_id: binary_sensor.toilet_light_toggle
+     entity_id: binary_sensor.rto_emu_smo
      to: 'off'
   action:
    service: light.turn_off

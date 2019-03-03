@@ -1,12 +1,15 @@
 - alias: Turn on bathroom
   trigger:
    - platform: state
-     entity_id: binary_sensor.bathroom_light_toggle
+     entity_id: binary_sensor.rba_emu_smo
      to: 'on'
   condition:
-   condition: state
-   entity_id: group.persons
-   state: 'home'
+   - condition: state
+     entity_id: group.persons
+     state: 'home'
+   - condition: numeric_state
+     entity_id: sensor.rba_emu_slu
+     below: 50
   action:
    service: light.turn_on
    data:

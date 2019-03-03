@@ -1,7 +1,7 @@
 - alias: Turn off bedroom
   trigger:
    - platform: state
-     entity_id: binary_sensor.bedroom_light_toggle
+     entity_id: binary_sensor.rbe_emu_smo
      to: 'off'
   action:
    service: light.turn_off

@@ -1,7 +1,7 @@
 - alias: Turn off study
   trigger:
    - platform: state
-     entity_id: binary_sensor.study_light_toggle
+     entity_id: binary_sensor.rst_emu_smo
      to: 'off'
   action:
    service: light.turn_off
