@@ -1,53 +1,43 @@
 platform: bayesian
 prior: 0.33
 name: sleep
-probability_threshold: 0.95
+probability_threshold: 0.85
 observations:
  - platform: state
    entity_id: group.persons
    to_state: 'on'
-   prob_given_true: 0.99
-   prob_given_false: 0.5
- - platform: state
-   entity_id: binary_sensor.rba_emu_smo
-   to_state: 'off'
-   prob_given_true: 0.6
-   prob_given_false: 0.8
- - platform: state
-   entity_id: binary_sensor.rbe_emu_smo
-   to_state: 'off'
-   prob_given_true: 0.5
- - platform: state
-   entity_id: binary_sensor.rha_emu_smo
-   to_state: 'off'
-   prob_given_true: 0.6
-   prob_given_false: 0.8
- - platform: state
-   entity_id: binary_sensor.rli_emu_00_smo
-   to_state: 'off'
-   prob_given_true: 0.6
-   prob_given_false: 0.8
- - platform: state
-   entity_id: binary_sensor.rli_emu_01_smo
-   to_state: 'off'
-   prob_given_true: 0.6
-   prob_given_false: 0.8
- - platform: state
-   entity_id: binary_sensor.rst_emu_smo
-   to_state: 'off'
-   prob_given_true: 0.6
-   prob_given_false: 0.8
- - platform: state
-   entity_id: binary_sensor.rto_emu_smo
-   to_state: 'off'
-   prob_given_true: 0.6
-   prob_given_false: 0.8
+   prob_given_true: 0.9 # 90% chance that if sleeping, somebody is at home
+   prob_given_false: 0.7 # 70% chance that not sleeping if at home
  - platform: state
    entity_id: alarm_control_panel.home_alarm
    to_state: 'armed_night'
    prob_given_true: 0.9
- - platform: state
-   entity_id: 'sensor.sun'
-   to_state: 'below_horizon'
-   prob_given_true: 0.9
    prob_given_false: 0.2
+ - platform: state
+   entity_id: group.awake_motions
+   to_state: 'off'
+   prob_given_true: 0.9
+   prob_given_false: 0.7
+ - platform: state
+   entity_id: binary_sensor.rbe_emu_smo
+   to_state: 'on'
+   prob_given_true: 0.7
+   prob_given_false: 0.5
+ - platform: state
+   entity_id: binary_sensor.night
+   to_state: 'on'
+   prob_given_true: 0.9
+   prob_given_false: 0.5
+ - platform: template # awake motion for 10 minutes
+   value_template: > 
+    {{ 
+      is_state('binary_sensor.awake_motion', 'on') and 
+      (as_timestamp(now()) - as_timestamp(states.binary_sensor.awake_motion.last_changed)) >= 600 
+    }}
+   prob_given_true: 0.2
+   prob_given_false: 0.8
+ - platform: state
+   entity_id: input_text.last_movement
+   to_state: 'Bedroom'
+   prob_given_true: 0.5
+   prob_given_false: 0.5

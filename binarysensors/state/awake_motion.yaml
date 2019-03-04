@@ -1,0 +1,16 @@
+platform: template
+sensors:
+ awake_motion:
+  friendly_name: 'Awake motion'
+  entity_id:
+   - binary_sensor.rba_emu_smo
+   - binary_sensor.rli_emu_00_smo
+   - binary_sensor.rli_emu_01_smo
+   - binary_sensor.rst_emu_smo
+  value_template: >
+    {{ 
+      is_state('binary_sensor.rba_emu_smo', 'on') or 
+      is_state('binary_sensor.rli_emu_00_smo', 'on') or 
+      is_state('binary_sensor.rli_emu_01_smo', 'on') or 
+      is_state('binary_sensor.rst_emu_smo', 'on')
+    }}

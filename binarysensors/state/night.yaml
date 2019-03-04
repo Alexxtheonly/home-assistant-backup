@@ -1,0 +1,7 @@
+platform: template
+sensors:
+ night:
+  friendly_name: Night time
+  entity_id:
+   - sensor.time
+  value_template: '{{not(strptime("06:00", "%H:%M").time() < now().time() < strptime("21:30", "%H:%M").time())}}'
