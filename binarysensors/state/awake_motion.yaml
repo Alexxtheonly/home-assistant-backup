@@ -3,14 +3,9 @@ sensors:
  awake_motion:
   friendly_name: 'Awake motion'
   entity_id:
-   - binary_sensor.rba_emu_smo
-   - binary_sensor.rli_emu_00_smo
-   - binary_sensor.rli_emu_01_smo
-   - binary_sensor.rst_emu_smo
+   -  group.awake_movement_sensors
   value_template: >
     {{ 
-      is_state('binary_sensor.rba_emu_smo', 'on') or 
-      is_state('binary_sensor.rli_emu_00_smo', 'on') or 
-      is_state('binary_sensor.rli_emu_01_smo', 'on') or 
-      is_state('binary_sensor.rst_emu_smo', 'on')
+      is_state('group.awake_movement_sensors', 'on') and
+      (as_timestamp(now()) - as_timestamp(states.group.awake_movement_sensors.last_changed)) >= 600
     }}

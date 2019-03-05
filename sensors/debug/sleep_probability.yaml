@@ -1,0 +1,9 @@
+platform: template
+sensors:
+ sleep_probability:
+  value_template: '{% if states.binary_sensor.sleep is not none %}
+          {{ (states.binary_sensor.sleep.attributes.probability | float ) * 100 }}
+          {% else %}
+            n/a
+          {% endif %}'
+  unit_of_measurement: '%'
