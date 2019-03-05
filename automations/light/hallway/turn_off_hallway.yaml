@@ -3,12 +3,19 @@
    - platform: state
      entity_id: binary_sensor.rha_emu_smo
      to: 'off'
+   - platform: numeric_state
+     entity_id: sensor.rha_emu_slu
+     above: 10
    - platform: state
      entity_id: binary_sensor.rha_edo
      to: 'off'
      for: 
       minutes: 1
       seconds: 30
+  condition:
+   - condition: state
+     entity_id: binary_sensor.rha_edo
+     state: 'off'
   action:
    service: light.turn_off
    data:

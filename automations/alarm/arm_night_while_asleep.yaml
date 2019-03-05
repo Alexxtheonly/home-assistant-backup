@@ -1,0 +1,14 @@
+- alias: Arm night while asleep
+  trigger:
+   - platform: state
+     entity_id: binary_sensor.sleep
+     to: 'on'
+  condition:
+   - condition: state
+     entity_id: alarm_control_panel.home_alarm
+     state: disarmed
+  action:
+   service: alarm_control_panel.alarm_arm_night
+   entity_id: alarm_control_panel.home_alarm
+   data:
+    code: !secret alarm_code

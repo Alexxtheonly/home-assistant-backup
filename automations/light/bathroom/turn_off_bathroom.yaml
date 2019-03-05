@@ -3,6 +3,9 @@
    - platform: state
      entity_id: binary_sensor.rba_emu_smo
      to: 'off'
+   - platform: numeric_state
+     entity_id: sensor.rba_emu_slu
+     above: 50
   action:
    service: light.turn_off
    data:
