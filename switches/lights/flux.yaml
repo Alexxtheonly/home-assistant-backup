@@ -1,0 +1,13 @@
+platform: flux
+lights:
+ - light.bathroom
+ - light.bedroom
+ - light.hallway0
+ - light.hallway1
+ - light.livingarea
+ - light.study
+ - light.toilett
+name: flux
+disable_brightness_adjust: false
+mode: mired
+transition: 0
