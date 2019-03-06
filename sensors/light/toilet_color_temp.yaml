@@ -1,8 +1,8 @@
 platform: template
 sensors:
  light_toilet_color_temp:
-  value_template: "{% if is_state('light.toilet', 'on') %}
-          {{ states.light.toilet.attributes.color_temp | int }}
+  value_template: "{% if is_state('light.toilett', 'on') %}
+          {{ states.light.toilett.attributes.color_temp | int }}
           {% else %}
             n/a
           {% endif %}"
