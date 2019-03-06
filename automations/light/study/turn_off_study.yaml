@@ -5,7 +5,7 @@
      to: 'off'
    - platform: numeric_state
      entity_id: sensor.rst_emu_slu
-     below: 30
+     above: 30
   action:
    service: light.turn_off
    data:
