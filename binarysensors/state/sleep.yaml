@@ -26,5 +26,5 @@ observations:
  - platform: state
    entity_id: input_text.last_movement
    to_state: 'Bedroom'
-   prob_given_true: 0.5
+   prob_given_true: 0.7
    prob_given_false: 0.5
