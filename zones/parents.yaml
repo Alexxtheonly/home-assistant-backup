@@ -1,0 +1,4 @@
+name: Parents
+latitude: !secret parents_lat
+longitude: !secret parents_lon
+radius: 25
