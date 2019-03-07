@@ -186,3 +186,5 @@ speedtestdotnet:
  scan_interval: '01:00'
 
 input_text: !include_dir_merge_named input_texts
+
+circadian_lighting:

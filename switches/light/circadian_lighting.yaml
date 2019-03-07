@@ -1,0 +1,14 @@
+platform: circadian_lighting
+lights_ct:
+ - light.bathroom
+ - light.bedroom
+ - light.hallway0
+ - light.hallway1
+ - light.livingarea
+ - light.study
+ - light.toilett
+sleep_entity: binary_sensor.sleep
+sleep_state: 'on'
+sleep_brightness: 2
+#disable_entity: entity_id to use to disable this switch.
+#disable_state: State that disable entity must be in to disable this switch

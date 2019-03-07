@@ -1,9 +1,0 @@
-- alias: Light turned on flux
-  trigger:
-   - platform: state
-     entity_id: light.bathroom, light.bedroom, light.hallway0, light.hallway1, light.livingarea, light.study, light.toilett
-     to: 'on'
-   - platform: time_pattern
-     seconds: '/30'
-  action:
-   service: switch.flux_update
