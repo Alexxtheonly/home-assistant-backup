@@ -1,0 +1,6 @@
+platform: waze_travel_time
+name: work_to_home_travel_time
+origin: zone.work
+region: 'EU'
+destination: zone.home
+incl_filter: 'K9560 Heilbronn'

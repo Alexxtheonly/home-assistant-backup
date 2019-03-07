@@ -1,0 +1,6 @@
+platform: waze_travel_time
+name: parents_to_home_travel_time
+origin: zone.parents
+region: 'EU'
+destination: zone.home
+incl_filter: 'A81'
