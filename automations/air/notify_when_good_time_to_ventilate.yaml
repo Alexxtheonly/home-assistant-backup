@@ -1,0 +1,23 @@
+- alias: 'Good time to ventilate'
+  trigger:
+   - platform: numeric_state
+     entity_id: sensor.average_apartment_humidity
+     above: 45
+   - platform: numeric_state
+     entity_id: sensor.dark_sky_humidity
+     below: 45
+  condition:
+   - condition: state
+     entity_id: group.persons
+     state: 'home'
+   - condition: state
+     entity_id: binary_sensor.sleep
+     state: 'off'
+  action:
+   - service: notify.alex_telegram
+     data_template:
+      message: "Currently is a good time to air.
+      
+      The outside temperature is {{ states.sensor.dark_sky_temperature.state }} °C, {{ states.sensor.dark_sky_humidity.state }} % humidity.
+      
+      Average humidity in the apartment is at {{ states.sensor.average_apartment_humidity.state }} %."
