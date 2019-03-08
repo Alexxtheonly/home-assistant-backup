@@ -1,0 +1,30 @@
+- alias: 'Commute time and weather'
+  trigger:
+   - platform: state
+     entity_id: binary_sensor.sleep
+     to: 'off'
+  condition:
+   - condition: state
+     entity_id: group.persons
+     state: 'home'
+#   - condition: state
+#     entity_id: binary_sensor.sleep
+#     state: 'off'
+   - condition: state
+     entity_id: binary_sensor.workday_sensor
+     state: 'on'
+  action:
+   - service: notify.alex_telegram
+     data_template:
+      message: "Beautiful good morning!
+      
+      
+      Currently the outside temperature is {{ states.sensor.dark_sky_temperature.state }} °C, the probability of precipitation is {{ states.sensor.dark_sky_precip_probability.state }} %.
+      
+      The weather forecast is as follows
+      
+      
+      {{ states.sensor.dark_sky_hourly_summary.state }}
+      
+      
+      The commute to work currently takes {{ states.sensor.home_to_work_travel_time.state }} minutes."

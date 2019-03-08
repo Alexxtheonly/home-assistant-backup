@@ -1,6 +1,9 @@
 platform: darksky
 api_key: !secret darksky_api_key
-language: de
+language: en
 monitored_conditions:
  - temperature
  - humidity
+ - temperature_high
+ - precip_probability
+ - hourly_summary
