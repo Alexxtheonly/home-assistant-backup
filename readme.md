@@ -5,11 +5,37 @@ This readme will be gradually updated.
 
 [![Build Status](https://travis-ci.org/Alexxtheonly/home-assistant-backup.svg?branch=master)](https://travis-ci.org/Alexxtheonly/home-assistant-backup)
 
+*Last updated: 2019-03-10*
+
+## Implemented automations
+
+* Lights
+  * On/Off based on movement and luminosity
+  * Adjust brightness and temperature based on [Circadian rhythm](https://en.wikipedia.org/wiki/Circadian_rhythm)
+  * On when door is open and luminosity below threshold
+  * While sleeping do not turn on bedroom lights, other lights use lowest brightness
+  * All lights out as soon as no longer at home
+* Alarm
+  * Arm when not at home
+  * Disarm when at home
+  * Arm when asleep
+  * Notification when alarm is triggered
+* Climate
+  * Set heat/eco based on presence
+* Surveillance
+  * Enable/Disable motion detection for indoor cameras if somebody is home
+  * While alarm is armed every movement is recorded
+* System
+  * Automatic backup once a week. Backup is sent to a remote location.
+* Push messages
+  * Alarm has been triggered
+  * Good time to air (outside humidity < inside humidity)
+  * Commute time and weather on workdays
+
 ## Components
-All components are planned, nothing is currently bought or installed.
 
 **Router**  
-AVM FRITZ!Box 7590
+AVM FRITZ!Box 7530
 
 **Lights**  
 IKEA TRÅDFRI
@@ -32,52 +58,3 @@ Xiaomi Mi Plant Flower Care
 
 ## Floorplan
 ![Image of floorplan](/images/floorplan.png)
-
-## Abbreviations
-### Rooms
-|Name|Short|
-|---|---|
-|Living room|rLi|
-|Hallway|rHa|
-|Toilett|rTo|
-|Bathroom|rBa|
-|Bedroom|rBe|
-|Study|rSt|
-|Kitchen|rKi|
-
-### Sensors
-
-|Name|Short|
-|---|---|
-|Movement|sMo|
-|Luminance|sLu|
-|Humidity|sHu|
-|Temperature|sTe|
-|Ultraviolet|sUl|
-|Battery|sPo|
-|Moisture|sMi|
-|Fertilizer|sFe|
-|Ampere|sAm|
-|Watt|sWa|
-|TotalEnergy|sTo|
-|Voltage|sVo|
-
-### Entitytypes
-
-|Name|Short|
-|---|---|
-|Powersocket|eSo|
-|Multisensor|eMu|
-|DoorSensor|eDo
-|Light|eLi|
-|Flower|eFl|
-|Camera|eCa|
-|Thermostat|eTh|
-
-## Naming convention
-
-`Room_EntityType_(**)_Sensor`  
-
-Example:  
-`rLi_eMu_sLu` = Living room luminance  
-`rLi_eSo_00_sWa` = Living room power socket 00 Watt
