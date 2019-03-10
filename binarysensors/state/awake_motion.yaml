@@ -6,6 +6,6 @@ sensors:
    -  group.awake_movement_sensors
   value_template: >
     {{ 
-      is_state('group.awake_movement_sensors', 'on') and
-      (as_timestamp(now()) - as_timestamp(states.group.awake_movement_sensors.last_changed)) >= 600
+      is_state('sensor.awake_movement', 'on') and
+      (as_timestamp(now()) - as_timestamp(states.sensor.awake_movement.last_changed)) >= 600
     }}

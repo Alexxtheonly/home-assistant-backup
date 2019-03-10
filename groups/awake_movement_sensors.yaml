@@ -1,8 +1,0 @@
-awake_movement_sensors:
- name: Awake movement sensors
- view: no
- entities:
-   - binary_sensor.rba_emu_smo
-   - binary_sensor.rli_emu_00_smo
-   - binary_sensor.rli_emu_01_smo
-   - binary_sensor.rst_emu_smo
