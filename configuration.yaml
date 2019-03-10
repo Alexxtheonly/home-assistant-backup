@@ -188,3 +188,5 @@ speedtestdotnet:
 input_text: !include_dir_merge_named input_texts
 
 circadian_lighting:
+ interval: 60
+ transition: 60
