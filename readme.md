@@ -12,7 +12,7 @@ This readme will be gradually updated.
 * Lights
   * On/Off based on movement and luminosity
   * Adjust brightness and temperature based on [Circadian rhythm](https://en.wikipedia.org/wiki/Circadian_rhythm)
-  * On when door is open and luminosity below threshold
+  * Hallway lights on when door is open and luminosity below threshold
   * While sleeping do not turn on bedroom lights, other lights use lowest brightness
   * All lights out as soon as no longer at home
 * Alarm
