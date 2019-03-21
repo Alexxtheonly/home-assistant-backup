@@ -5,7 +5,7 @@ This readme will be gradually updated.
 
 [![Build Status](https://travis-ci.org/Alexxtheonly/home-assistant-backup.svg?branch=master)](https://travis-ci.org/Alexxtheonly/home-assistant-backup)
 
-*Last updated: 2019-03-10*
+*Last updated: 2019-03-21*
 
 ## Implemented automations
 
