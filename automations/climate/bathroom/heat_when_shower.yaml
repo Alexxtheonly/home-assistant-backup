@@ -1,0 +1,15 @@
+- alias: Set heat when shower
+  trigger:
+   - platform: state
+     entity_id: binary_sensor.bathroom_humidity_rising
+     to: 'on'
+  condition:
+   - condition: state
+     entity_id: group.persons
+     state: 'home'
+  action:
+    - service: climate.set_temperature
+      data:
+        entity_id: "climate.bathroom"
+        operation_mode: manual
+        temperature: 27.5

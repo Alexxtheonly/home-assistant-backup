@@ -3,9 +3,17 @@
    - platform: state
      entity_id: binary_sensor.rli_emu_00_smo
      to: 'off'
+     for:
+      seconds: 30
    - platform: numeric_state
      entity_id: sensor.rli_emu_00_slu
      above: 40
+  condition:
+   - condition: template
+     value_template: "{{ not is_state('input_text.last_movement', 'Living area') }}"
+   - condition: state
+     entity_id: binary_sensor.rli_emu_00_smo
+     state: 'off'
   action:
    service: light.turn_off
    data:

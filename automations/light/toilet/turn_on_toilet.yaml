@@ -7,9 +7,6 @@
    - condition: state
      entity_id: group.persons
      state: 'home'
-   - condition: numeric_state
-     entity_id: sensor.rto_emu_slu
-     below: 50
   action:
    service: light.turn_on
    data:

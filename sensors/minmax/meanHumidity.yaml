@@ -9,3 +9,4 @@ entity_ids:
  - sensor.rli_emu_shu
  - sensor.rst_emu_shu
  - sensor.rto_emu_shu
+ - sensor.rki_emu_shu

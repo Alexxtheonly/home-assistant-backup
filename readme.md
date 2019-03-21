@@ -11,6 +11,7 @@ This readme will be gradually updated.
 
 * Lights
   * On/Off based on movement and luminosity
+  * Stay on in room with last movement
   * Adjust brightness and temperature based on [Circadian rhythm](https://en.wikipedia.org/wiki/Circadian_rhythm)
   * Hallway lights on when door is open and luminosity below threshold
   * While sleeping do not turn on bedroom lights, other lights use lowest brightness
@@ -22,6 +23,10 @@ This readme will be gradually updated.
   * Notification when alarm is triggered
 * Climate
   * Set heat/eco based on presence
+  * Set max heat in bathroom while showering
+* Air purifier
+  * Turn on/off LED based on sleep state
+  * Set max every 5 hours for 30 minutes while not asleep
 * Surveillance
   * Enable/Disable motion detection for indoor cameras if somebody is home
   * While alarm is armed every movement is recorded
@@ -55,6 +60,9 @@ Tenvis T8810
 
 **Flower monitor**  
 Xiaomi Mi Plant Flower Care
+
+**Air purifier**
+Xiaomi Air Purifier Pro V7
 
 ## Floorplan
 ![Image of floorplan](/images/floorplan.png)

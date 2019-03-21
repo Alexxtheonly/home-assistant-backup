@@ -1,0 +1,14 @@
+platform: template
+sensors:
+ computer_current_a:
+  value_template: '{{ states.switch.computer.attributes["current_a"] | float }}'
+  unit_of_measurement: 'A'
+ computer_current_power_w:
+   value_template: '{{ states.switch.computer.attributes["current_power_w"] | float }}'
+   unit_of_measurement: 'W'
+ computer_total_energy_kwh:
+  value_template: '{{ states.switch.computer.attributes["total_energy_kwh"] | float }}'
+  unit_of_measurement: 'kWh'
+ computer_voltage:
+   value_template: '{{ states.switch.computer.attributes["voltage"] | float }}'
+   unit_of_measurement: 'V'

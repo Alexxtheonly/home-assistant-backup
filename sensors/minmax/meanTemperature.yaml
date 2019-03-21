@@ -9,3 +9,4 @@ entity_ids:
  - sensor.rli_emu_01_ste
  - sensor.rst_emu_ste
  - sensor.rto_emu_ste
+ - sensor.rki_emu_ste

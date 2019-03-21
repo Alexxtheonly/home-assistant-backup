@@ -1,22 +1,22 @@
-- alias: Turn off bathroom
+- alias: Turn off kitchen
   trigger:
    - platform: state
-     entity_id: binary_sensor.rba_emu_smo
+     entity_id: binary_sensor.rki_emu_smo
      to: 'off'
      for:
-      seconds: 30
+      seconds: 10
    - platform: numeric_state
-     entity_id: sensor.rba_emu_slu
+     entity_id: sensor.rki_emu_slu
      above: 50
    - platform: state
      entity_id: input_text.last_movement
   condition:
    - condition: template
-     value_template: "{{ not is_state('input_text.last_movement', 'Bathroom') }}"
+     value_template: "{{ not is_state('input_text.last_movement', 'Kitchen') }}"
    - condition: state
-     entity_id: binary_sensor.rba_emu_smo
+     entity_id: binary_sensor.rki_emu_smo
      state: 'off'
   action:
    service: light.turn_off
    data:
-    entity_id: light.bathroom
+    entity_id: light.kitchen

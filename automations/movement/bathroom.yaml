@@ -1,10 +1,10 @@
-- alias: Bathroom movement
+- alias: Kitchen movement
   trigger:
    - platform: state
-     entity_id: binary_sensor.rba_emu_smo
+     entity_id: binary_sensor.rki_emu_smo
      to: 'on'
   action:
    - service: input_text.set_value
      data:
       entity_id: input_text.last_movement
-      value: 'Bathroom'
+      value: 'Kitchen'

@@ -1,0 +1,18 @@
+- alias: Power clean
+  trigger:
+   - platform: time_pattern
+     hours: '/5'
+     minutes: '0'
+  condition:
+   - condition: state
+     entity_id: binary_sensor.sleep
+     state: 'off'
+  action:
+    - service: fan.xiaomi_miio_set_favorite_level
+      data:
+        entity_id: 'fan.xiaomi_miio_device'
+        level: 17
+    - service: fan.set_speed
+      data:
+        entity_id: 'fan.xiaomi_miio_device'
+        speed: 'favorite'

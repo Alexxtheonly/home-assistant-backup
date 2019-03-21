@@ -1,0 +1,4 @@
+platform: xiaomi_miio
+host: 192.168.179.32
+token: a456dd4aa405f5a8bb8a392e648891a7
+model: zhimi.airpurifier.v7

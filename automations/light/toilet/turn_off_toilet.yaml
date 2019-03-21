@@ -3,6 +3,16 @@
    - platform: state
      entity_id: binary_sensor.rto_emu_smo
      to: 'off'
+     for:
+      seconds: 30
+   - platform: state
+     entity_id: input_text.last_movement
+  condition:
+   - condition: template
+     value_template: "{{ not is_state('input_text.last_movement', 'Toilet') }}"
+   - condition: state
+     entity_id: binary_sensor.rto_emu_smo
+     state: 'off'
   action:
    service: light.turn_off
    data:

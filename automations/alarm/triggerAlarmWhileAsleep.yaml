@@ -3,6 +3,9 @@
    - platform: state
      entity_id: binary_sensor.rha_edo
      to: 'on'
+   - platform: state
+     entity_id: binary_sensor.rli_edo
+     to: 'on'
   condition:
    - condition: state
      entity_id: alarm_control_panel.home_alarm

@@ -1,0 +1,14 @@
+platform: template
+sensors:
+ fridge_current_a:
+  value_template: '{{ states.switch.fridge.attributes["current_a"] | float }}'
+  unit_of_measurement: 'A'
+ fridge_current_power_w:
+   value_template: '{{ states.switch.fridge.attributes["current_power_w"] | float }}'
+   unit_of_measurement: 'W'
+ fridge_total_energy_kwh:
+  value_template: '{{ states.switch.fridge.attributes["total_energy_kwh"] | float }}'
+  unit_of_measurement: 'kWh'
+ fridge_voltage:
+   value_template: '{{ states.switch.fridge.attributes["voltage"] | float }}'
+   unit_of_measurement: 'V'

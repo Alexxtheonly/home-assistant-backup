@@ -1,0 +1,30 @@
+platform: template
+sensors:
+ air_purifier_temperature:
+  value_template: '{{ states.fan.xiaomi_miio_device.attributes["temperature"] | float }}'
+  unit_of_measurement: '°C'
+ air_purifier_humidity:
+   value_template: '{{ states.fan.xiaomi_miio_device.attributes["humidity"] | float }}'
+   unit_of_measurement: '%'
+ air_purifier_aqi:
+  value_template: '{{ states.fan.xiaomi_miio_device.attributes["aqi"] | float }}'
+ air_purifier_mode:
+   value_template: '{{ states.fan.xiaomi_miio_device.attributes["mode"] }}'
+ air_purifier_favorite_level:
+  value_template: '{{ states.fan.xiaomi_miio_device.attributes["favorite_level"] | float }}'
+ air_purifier_illuminance:
+  value_template: '{{ states.fan.xiaomi_miio_device.attributes["illuminance"] | float }}'
+  unit_of_measurement: 'lux'
+ air_purifier_volume:
+  value_template: '{{ states.fan.xiaomi_miio_device.attributes["volume"] | float }}'
+ air_purifier_filter_life_remaining:
+  value_template: '{{ states.fan.xiaomi_miio_device.attributes["filter_life_remaining"] | float }}'
+  unit_of_measurement: '%'
+ air_purifier_led:
+  value_template: '{{ states.fan.xiaomi_miio_device.attributes["led"] }}'
+ air_purifier_motor_speed:
+  value_template: '{{ states.fan.xiaomi_miio_device.attributes["motor_speed"] | float }}'
+ air_purifier_motor2_speed:
+  value_template: '{{ states.fan.xiaomi_miio_device.attributes["motor2_speed"] | float }}'
+ air_purifier_filter_hours_used:
+  value_template: '{{ states.fan.xiaomi_miio_device.attributes["filter_hours_used"] | float }}'

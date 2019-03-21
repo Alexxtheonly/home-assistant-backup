@@ -1,30 +1,5 @@
-platform: bayesian
-prior: 0.33
-name: sleep
-probability_threshold: 0.85
-observations:
- - platform: state
-   entity_id: group.persons
-   to_state: 'home'
-   prob_given_true: 0.9 # 90% chance that if sleeping, somebody is at home
-   prob_given_false: 0.7 # 70% chance that not sleeping if at home
- - platform: state
-   entity_id: binary_sensor.rbe_emu_smo
-   to_state: 'on'
-   prob_given_true: 0.7
-   prob_given_false: 0.5
- - platform: state
-   entity_id: binary_sensor.night
-   to_state: 'on'
-   prob_given_true: 0.9
-   prob_given_false: 0.5
- - platform: state
-   entity_id: binary_sensor.awake_motion
-   to_state: 'off'
-   prob_given_true: 0.9
-   prob_given_false: 0.3
- - platform: state
-   entity_id: input_text.last_movement
-   to_state: 'Bedroom'
-   prob_given_true: 0.7
-   prob_given_false: 0.5
+platform: template
+sensors:
+ sleep:
+  friendly_name: Sleep
+  value_template: "{{ is_state('light.bedroom', 'unavailable') }}"
