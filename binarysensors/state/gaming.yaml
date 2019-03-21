@@ -1,0 +1,5 @@
+platform: template
+sensors:
+ gaming:
+  friendly_name: Gaming
+  value_template: "{{ (states.sensor.computer_current_power_w.state | float ) > 200 }}"
