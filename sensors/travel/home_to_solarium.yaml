@@ -1,0 +1,6 @@
+platform: waze_travel_time
+name: home_to_solarium_travel_time
+origin: zone.home
+region: 'EU'
+destination: '49.19107192, 9.22718525'
+incl_filter: 'Brückenstraße'

@@ -10,6 +10,5 @@
   action:
     - service: climate.set_temperature
       data:
-        entity_id: "climate.bathroom"
-        operation_mode: manual
+        entity_id: climate.bathroom
         temperature: 27.5

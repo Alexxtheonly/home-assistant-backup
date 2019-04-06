@@ -1,14 +1,14 @@
 platform: template
 sensors:
- hassio_current_a:
-  value_template: '{{ states.switch.hassio.attributes["current_a"] | float }}'
+ hallway_devices_current_a:
+  value_template: '{{ states.switch.hallway_devices.attributes["current_a"] | float }}'
   unit_of_measurement: 'A'
- hassio_current_power_w:
-   value_template: '{{ states.switch.hassio.attributes["current_power_w"] | float }}'
+ hallway_devices_current_power_w:
+   value_template: '{{ states.switch.hallway_devices.attributes["current_power_w"] | float }}'
    unit_of_measurement: 'W'
- hassio_total_energy_kwh:
-  value_template: '{{ states.switch.hassio.attributes["total_energy_kwh"] | float }}'
+ hallway_devices_total_energy_kwh:
+  value_template: '{{ states.switch.hallway_devices.attributes["total_energy_kwh"] | float }}'
   unit_of_measurement: 'kWh'
- hassio_voltage:
-   value_template: '{{ states.switch.hassio.attributes["voltage"] | float }}'
+ hallway_devices_voltage:
+   value_template: '{{ states.switch.hallway_devices.attributes["voltage"] | float }}'
    unit_of_measurement: 'V'

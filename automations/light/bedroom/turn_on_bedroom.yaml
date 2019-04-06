@@ -9,7 +9,7 @@
      state: 'home'
    - condition: numeric_state
      entity_id: sensor.rbe_emu_slu
-     below: 45
+     below: 40
    - condition: state
      entity_id: binary_sensor.sleep
      state: 'off'

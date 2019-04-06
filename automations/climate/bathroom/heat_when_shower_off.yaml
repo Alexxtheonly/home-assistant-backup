@@ -10,5 +10,5 @@
   action:
     - service: climate.set_operation_mode
       data:
-        entity_id: "climate.bathroom"
+        entity_id: climate.bathroom
         operation_mode: heat

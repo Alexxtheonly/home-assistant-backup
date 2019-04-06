@@ -1,0 +1,14 @@
+platform: template
+sensors:
+ freezer_current_a:
+  value_template: '{{ states.switch.freezer.attributes["current_a"] | float }}'
+  unit_of_measurement: 'A'
+ freezer_current_power_w:
+   value_template: '{{ states.switch.freezer.attributes["current_power_w"] | float }}'
+   unit_of_measurement: 'W'
+ freezer_total_energy_kwh:
+  value_template: '{{ states.switch.freezer.attributes["total_energy_kwh"] | float }}'
+  unit_of_measurement: 'kWh'
+ freezer_voltage:
+   value_template: '{{ states.switch.freezer.attributes["voltage"] | float }}'
+   unit_of_measurement: 'V'

@@ -9,7 +9,7 @@
      state: 'home'
    - condition: numeric_state
      entity_id: sensor.rst_emu_slu
-     below: 30
+     below: 40
   action:
    service: light.turn_on
    data:

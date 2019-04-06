@@ -1,0 +1,8 @@
+platform: template
+sensors:
+ good_time_air:
+  friendly_name: Good time to air
+  entity_id:
+   - sensor.average_apartment_humidity
+   - sensor.dark_sky_humidity
+  value_template: '{{ (states.sensor.dark_sky_humidity.state | float) < (states.sensor.average_apartment_humidity.state | float) }}'

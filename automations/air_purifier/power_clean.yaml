@@ -16,3 +16,8 @@
       data:
         entity_id: 'fan.xiaomi_miio_device'
         speed: 'favorite'
+    - delay: '00:30:00'
+    - service: fan.set_speed
+      data:
+        entity_id: 'fan.xiaomi_miio_device'
+        speed: 'auto'

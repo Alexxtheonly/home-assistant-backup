@@ -3,16 +3,18 @@
    - platform: state
      entity_id: group.persons
      to: 'home'
-  condition:
-   - condition: state
-     entity_id: alarm_control_panel.home_alarm
-     state: armed_away
-   - condition: state
-     entity_id: alarm_control_panel.home_alarm
-     state: pending
-   - condition: state
-     entity_id: alarm_control_panel.home_alarm
-     state: triggered
+  condition: 
+   condition: or
+   conditions:
+    - condition: state
+      entity_id: alarm_control_panel.home_alarm
+      state: armed_away
+    - condition: state
+      entity_id: alarm_control_panel.home_alarm
+      state: pending
+    - condition: state
+      entity_id: alarm_control_panel.home_alarm
+      state: triggered
   action:
    service: alarm_control_panel.alarm_disarm
    entity_id: alarm_control_panel.home_alarm
