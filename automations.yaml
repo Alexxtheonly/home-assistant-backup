@@ -1,0 +1,33 @@
+- id: '1567445629214'
+  alias: Start dehumidifier
+  trigger:
+  - entity_id: binary_sensor.sleep
+    platform: state
+  - above: '42'
+    entity_id: sensor.average_apartment_humidity
+    platform: numeric_state
+  condition:
+  - condition: state
+    entity_id: binary_sensor.sleep
+    state: 'off'
+  - above: '42'
+    condition: numeric_state
+    entity_id: sensor.average_apartment_humidity
+  action:
+  - data:
+      entity_id: switch.dehumidifier
+    service: switch.turn_on
+- id: '1570872352260'
+  alias: Turn on neato
+  description: ''
+  trigger:
+  - at: 08:00
+    platform: time
+  condition:
+  - condition: state
+    entity_id: binary_sensor.workday_sensor
+    state: 'on'
+  action:
+  - data:
+      entity_id: vacuum.neato
+    service: vacuum.start

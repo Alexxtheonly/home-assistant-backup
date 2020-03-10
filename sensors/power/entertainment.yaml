@@ -1,0 +1,17 @@
+platform: template
+sensors:
+ entertainment_current_a:
+  value_template: '{{ states.switch.entertainment.attributes["current_a"] | float }}'
+  unit_of_measurement: 'A'
+ entertainment_current_power_w:
+   value_template: '{{ states.switch.entertainment.attributes["current_power_w"] | float }}'
+   unit_of_measurement: 'W'
+ entertainment_total_energy_kwh:
+  value_template: '{{ states.switch.entertainment.attributes["total_energy_kwh"] | float }}'
+  unit_of_measurement: 'kWh'
+ entertainment_voltage:
+   value_template: '{{ states.switch.entertainment.attributes["voltage"] | float }}'
+   unit_of_measurement: 'V'
+ entertainment_today_energy_kwh:
+  value_template: '{{ states.switch.entertainment.attributes["today_energy_kwh"] | float }}'
+  unit_of_measurement: 'kWh'

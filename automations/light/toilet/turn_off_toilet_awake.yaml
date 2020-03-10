@@ -1,10 +1,10 @@
-- alias: Turn off toilet
+- alias: Turn off toilet awake
   trigger:
    - platform: state
      entity_id: binary_sensor.rto_emu_smo
      to: 'off'
      for:
-      seconds: 30
+      seconds: 20
    - platform: state
      entity_id: input_text.last_movement
   condition:
@@ -13,7 +13,11 @@
    - condition: state
      entity_id: binary_sensor.rto_emu_smo
      state: 'off'
+   - condition: state
+     entity_id: binary_sensor.sleep
+     state: 'off' 
   action:
    service: light.turn_off
    data:
-    entity_id: light.toilett
+    entity_id: light.toilet
+    transition: 10

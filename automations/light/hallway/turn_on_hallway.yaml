@@ -7,9 +7,11 @@
    - condition: state
      entity_id: group.persons
      state: 'home'
-   - condition: numeric_state
-     entity_id: sensor.rha_emu_slu
-     below: 10
+   - condition: template
+     value_template: "
+  {{
+    states('sensor.average_apartment_luminance') | float <= states('input_number.light_threshold') | float
+  }}"
   action:
    service: light.turn_on
    data:

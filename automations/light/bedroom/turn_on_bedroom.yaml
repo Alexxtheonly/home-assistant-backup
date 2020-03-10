@@ -3,16 +3,17 @@
    - platform: state
      entity_id: binary_sensor.rbe_emu_smo
      to: 'on'
-  condition:
-   - condition: state
-     entity_id: group.persons
-     state: 'home'
-   - condition: numeric_state
+   - platform: state
      entity_id: sensor.rbe_emu_slu
-     below: 40
-   - condition: state
-     entity_id: binary_sensor.sleep
-     state: 'off'
+  condition:
+   condition: template
+   value_template: "
+   {{
+     is_state('group.persons','home') and
+     states('sensor.average_apartment_luminance') | float <= states('input_number.light_threshold') | float and 
+     is_state('binary_sensor.sleep','off') and
+     (is_state('input_text.last_movement','Bedroom') or is_state('binary_sensor.rbe_emu_smo','on'))
+   }}"
   action:
    service: light.turn_on
    data:

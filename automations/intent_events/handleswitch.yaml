@@ -1,0 +1,14 @@
+- alias: 'Handle switch intents'
+  trigger:
+    platform: event
+    event_type: rhasspy_HandleSwitch
+  action: 
+  - service_template: >
+      {%- if trigger.event.data.state == 'on' -%}
+        switch.turn_on
+      {%- else -%}
+        switch.turn_off
+      {%- endif -%}
+    data_template:
+      entity_id: >
+          switch.{{ trigger.event.data.switch }}

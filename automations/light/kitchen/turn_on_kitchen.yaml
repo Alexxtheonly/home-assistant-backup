@@ -1,16 +1,21 @@
-- alias: Turn on bathroom
+- alias: Turn on kitchen
   trigger:
    - platform: state
      entity_id: binary_sensor.rki_emu_smo
      to: 'on'
-  condition:
-   - condition: state
-     entity_id: group.persons
-     state: 'home'
-   - condition: numeric_state
+   - platform: state
      entity_id: sensor.rki_emu_slu
-     below: 50
+  condition:
+   condition: template
+   value_template: "
+   {{
+     is_state('group.persons','home') and
+     states('sensor.average_apartment_luminance') | float <= states('input_number.light_threshold') | float and 
+     (is_state('input_text.last_movement','Kitchen') or is_state('binary_sensor.rki_emu_smo','on')) and
+     is_state('binary_sensor.sleep','off')
+   }}"
   action:
    service: light.turn_on
    data:
     entity_id: light.kitchen
+    brightness_pct: 100

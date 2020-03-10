@@ -12,3 +12,6 @@ sensors:
  freezer_voltage:
    value_template: '{{ states.switch.freezer.attributes["voltage"] | float }}'
    unit_of_measurement: 'V'
+ freezer_today_energy_kwh:
+  value_template: '{{ states.switch.freezer.attributes["today_energy_kwh"] | float }}'
+  unit_of_measurement: 'kWh'

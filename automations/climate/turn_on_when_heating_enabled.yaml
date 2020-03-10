@@ -1,0 +1,13 @@
+- alias: Turn on when heating enabled
+  trigger:
+   - platform: state
+     entity_id: binary_sensor.heating_enabled
+     to: 'on'
+  condition:
+   - condition: state
+     entity_id: group.persons
+     state: 'home'
+  action:
+    - service: climate.turn_on
+      data:
+        entity_id: "all"

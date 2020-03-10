@@ -31,3 +31,5 @@ production_auth.json
 .HA_VERSION
 .vs
 /node-red
+/Trash-0
+custom_components/

@@ -1,0 +1,11 @@
+HandleLight:
+  action: 
+  - service_template: >
+      {%- if state == 'on' -%}
+        light.turn_on
+      {%- else -%}
+        light.turn_off
+      {%- endif -%}
+    data_template:
+      entity_id: >
+          light.{{light}}

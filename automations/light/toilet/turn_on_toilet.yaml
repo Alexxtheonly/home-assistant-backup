@@ -10,4 +10,4 @@
   action:
    service: light.turn_on
    data:
-    entity_id: light.toilett
+    entity_id: light.toilet

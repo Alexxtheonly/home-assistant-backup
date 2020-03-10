@@ -1,0 +1,20 @@
+- alias: 'Handle climate intents'
+  trigger:
+    platform: event
+    event_type: rhasspy_HandleClimate
+  action: 
+  - service_template: >
+      {%- if trigger.event.data.state == 'on' -%}
+        climate.set_temperature
+      {%- else -%}
+        climate.turn_off
+      {%- endif -%}
+    data_template:
+      entity_id: >
+        {%- if trigger.event.data.climate == 'all' -%}
+          all
+        {%- else -%}
+          climate.{{ trigger.event.data.climate }}
+        {%- endif -%}
+      temperature: >
+        {{ states.input_number.desired_temperature.state | float }}

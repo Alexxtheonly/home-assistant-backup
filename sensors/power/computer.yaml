@@ -12,3 +12,6 @@ sensors:
  computer_voltage:
    value_template: '{{ states.switch.computer.attributes["voltage"] | float }}'
    unit_of_measurement: 'V'
+ computer_today_energy_kwh:
+  value_template: '{{ states.switch.computer.attributes["today_energy_kwh"] | float }}'
+  unit_of_measurement: 'kWh'

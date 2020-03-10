@@ -6,9 +6,10 @@ lights_ct:
  - light.hallway1
  - light.livingarea
  - light.study
- - light.toilett
+ - light.toilet
+ - light.dining_area
 sleep_entity: binary_sensor.sleep
 sleep_state: 'on'
-sleep_brightness: 2
+sleep_brightness: 10
 #disable_entity: entity_id to use to disable this switch.
 #disable_state: State that disable entity must be in to disable this switch

@@ -3,6 +3,9 @@
    - platform: state
      entity_id: binary_sensor.rli_emu_01_smo
      to: 'on'
+  condition:
+   - condition: template
+     value_template: "{{ is_state('binary_sensor.sleep','off') }}"
   action:
    - service: input_text.set_value
      data:

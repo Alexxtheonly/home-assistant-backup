@@ -1,3 +1,0 @@
-platform: ffmpeg
-name: living area
-input: rtsp://admin:camCam@192.168.179.24:554/11

@@ -8,9 +8,26 @@
    weekday: 
     - mon
   action:
-   - service: hassio.snapshot_full
+   - service: hassio.snapshot_partial
      data_template:
       name: Automated Backup {{ now().strftime('%Y-%m-%d') }}
+      addons:
+        - a0d7b954_nodered
+        - 0d319786_tensorflow
+        - core_mosquitto
+        - 7be23ff5_dropbox_sync
+        - core_samba
+        - a0d7b954_motioneye
+        - a0d7b954_portainer
+        - a0d7b954_grafana
+        - a0d7b954_pi-hole
+        - a0d7b954_vscode
+        - a0d7b954_influxdb
+        - a0d7b954_plex
+      folders:
+        - homeassistant
+        - share/motioneye
+        - ssl
    - delay: '00:01:30'
    - service: hassio.addon_stdin
      data_template:

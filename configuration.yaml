@@ -24,6 +24,10 @@ config:
 
 system_health:
 
+scene: !include scenes.yaml
+
+api:
+
 # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
 # http:
 #   base_url: example.duckdns.org:8123
@@ -79,11 +83,6 @@ automation: !include_dir_merge_list automations
 script: !include_dir_list scripts
 device_tracker: !include_dir_list device_tracker
 zone: !include_dir_list zones
-
-#mqtt:
-# broker: core-mosquitto
-# username: !secret mqtt_user
-# password: !secret mqtt_password
 
 panel_custom:
  - name: floorplan
@@ -194,3 +193,21 @@ circadian_lighting:
 fan: !include_dir_merge_named fans
 
 plant: !include_dir_merge_named plants
+
+media_player: !include_dir_merge_named media_players
+
+input_number: !include_dir_merge_named input_numbers
+
+intent_script: !include intents/intents.yaml
+
+hacs:
+ token: !secret hacs_token
+
+# Example configuration.yaml entry
+neato:
+ username: !secret neato_user
+ password: !secret neato_pass
+
+mobile_app:
+
+ssdp:

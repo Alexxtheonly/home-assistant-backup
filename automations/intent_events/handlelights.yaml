@@ -1,0 +1,18 @@
+- alias: 'Handle light intents'
+  trigger:
+    platform: event
+    event_type: rhasspy_HandleLight 
+  action: 
+  - service_template: >
+      {%- if trigger.event.data.state == 'on' -%}
+        light.turn_on
+      {%- else -%}
+        light.turn_off
+      {%- endif -%}
+    data_template:
+      entity_id: >
+        {%- if trigger.event.data.light == 'all' -%}
+          all
+        {%- else -%}
+          light.{{ trigger.event.data.light }}
+        {%- endif -%}

@@ -1,10 +1,9 @@
-- alias: Set eco when not home
+- alias: Turn off heating when not home
   trigger:
    - platform: state
      entity_id: group.persons
      to: 'not_home'
   action:
-    - service: climate.set_operation_mode
+    - service: climate.turn_off
       data:
         entity_id: "all"
-        operation_mode: eco

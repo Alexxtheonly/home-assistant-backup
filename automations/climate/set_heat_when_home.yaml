@@ -3,8 +3,13 @@
    - platform: state
      entity_id: group.persons
      to: 'home'
+   - platform: state
+     entity_id: input_number.desired_temperature
+  condition:
+   - condition: state
+     entity_id: binary_sensor.heating_enabled
+     state: 'on'
   action:
-    - service: climate.set_operation_mode
-      data:
-        entity_id: "all"
-        operation_mode: heat
+    - service: climate.set_temperature
+      data_template:
+       {"entity_id":"all","temperature":"{{ states.input_number.desired_temperature.state | float }}"}

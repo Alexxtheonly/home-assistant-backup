@@ -12,3 +12,6 @@ sensors:
  hallway_devices_voltage:
    value_template: '{{ states.switch.hallway_devices.attributes["voltage"] | float }}'
    unit_of_measurement: 'V'
+ hallway_devices_today_energy_kwh:
+  value_template: '{{ states.switch.hallway_devices.attributes["today_energy_kwh"] | float }}'
+  unit_of_measurement: 'kWh'

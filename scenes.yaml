@@ -1,0 +1,17 @@
+- id: '1581057595706'
+  name: PC Gaming
+  entities:
+    light.study:
+      friendly_name: Study
+      max_mireds: 454
+      min_mireds: 250
+      state: 'off'
+      supported_features: 35
+    switch.computer:
+      current_a: '1.05'
+      current_power_w: '24.86'
+      friendly_name: Computer
+      state: 'on'
+      today_energy_kwh: '0.000'
+      total_energy_kwh: '2.019'
+      voltage: '228.4'

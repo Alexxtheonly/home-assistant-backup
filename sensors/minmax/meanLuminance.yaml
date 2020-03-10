@@ -1,0 +1,12 @@
+platform: min_max
+type: mean
+name: Average apartment luminance
+entity_ids:
+ - sensor.rba_emu_slu
+ - sensor.rbe_emu_slu
+ - sensor.rha_emu_slu
+ - sensor.rli_emu_00_slu
+ - sensor.rli_emu_01_slu
+ - sensor.rst_emu_slu
+ - sensor.rto_emu_slu
+ - sensor.rki_emu_slu

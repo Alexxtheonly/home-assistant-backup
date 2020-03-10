@@ -7,3 +7,4 @@ monitored_conditions:
  - temperature_high
  - precip_probability
  - hourly_summary
+ - cloud_cover

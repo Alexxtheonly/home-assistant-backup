@@ -1,0 +1,11 @@
+platform: template
+sensors:
+ felt_temperature:
+  friendly_name: 'Felt temperature'
+  unit_of_measurement: "°C"
+  value_template: >-
+      {% set temperature = (states('sensor.average_apartment_temperature') | float) %}
+      {% set es = 0.6108 * e ** (17.27 * temperature / (temperature + 237.3)) %} {# Saturation vapor pressure in kPa #}
+      {% set ea = ((states('sensor.average_apartment_humidity') | float) / 100 * es) %} {# Actual vapor pressure in kPa #}
+      {% set tp = -1.3 + 0.92 * temperature + 2.2 * ea %} {# Apparent temperature in C #}
+      {{ tp | round(1) }}

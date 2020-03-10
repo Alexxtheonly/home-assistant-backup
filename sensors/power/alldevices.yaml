@@ -1,0 +1,14 @@
+platform: template
+sensors:
+ today_total_energy_kwh:
+   friendly_name: "Today's energy consumption"
+   value_template: >- 
+    {{ 
+      (((states('sensor.computer_today_energy_kwh') | float) + 
+      (states('sensor.dehumidifier_today_energy_kwh') | float) + 
+      (states('sensor.dishwasher_today_energy_kwh') | float) +
+      (states('sensor.entertainment_today_energy_kwh') | float) +
+      (states('sensor.freezer_today_energy_kwh') | float) +
+      (states('sensor.hallway_devices_today_energy_kwh') | float) +
+      (states('sensor.fridge_today_energy_kwh') | float) +
+      (states('sensor.washing_machine_today_energy_kwh') | float)) | round(3) )}} 

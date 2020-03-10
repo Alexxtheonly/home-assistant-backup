@@ -12,3 +12,6 @@ sensors:
  fridge_voltage:
    value_template: '{{ states.switch.fridge.attributes["voltage"] | float }}'
    unit_of_measurement: 'V'
+ fridge_today_energy_kwh:
+  value_template: '{{ states.switch.fridge.attributes["today_energy_kwh"] | float }}'
+  unit_of_measurement: 'kWh'

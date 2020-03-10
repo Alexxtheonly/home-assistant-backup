@@ -1,0 +1,20 @@
+- alias: Turn off toilet sleep
+  trigger:
+   - platform: state
+     entity_id: binary_sensor.rto_emu_smo
+     to: 'off'
+   - platform: state
+     entity_id: input_text.last_movement
+  condition:
+   - condition: template
+     value_template: "{{ not is_state('input_text.last_movement', 'Toilet') }}"
+   - condition: state
+     entity_id: binary_sensor.rto_emu_smo
+     state: 'off'
+   - condition: state
+     entity_id: binary_sensor.sleep
+     state: 'on' 
+  action:
+   service: light.turn_off
+   data:
+    entity_id: light.toilet

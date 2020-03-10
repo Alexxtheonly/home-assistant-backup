@@ -1,0 +1,16 @@
+- alias: Turn off hallway sleep
+  trigger:
+   - platform: state
+     entity_id: binary_sensor.rha_emu_smo
+     to: 'off'
+  condition:
+   - condition: template
+     value_template: "
+  {{
+    is_state('binary_sensor.sleep','on') and
+    is_state('binary_sensor.rha_emu_smo', 'off')
+  }}"
+  action:
+   service: light.turn_off
+   data:
+    entity_id: light.hallway0, light.hallway1

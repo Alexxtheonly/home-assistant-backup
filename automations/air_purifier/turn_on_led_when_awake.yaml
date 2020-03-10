@@ -4,6 +4,6 @@
      entity_id: binary_sensor.sleep
      to: 'off'
   action:
-    - service: fan.xiaomi_miio_set_led_on
+    - service: xiaomi_miio.fan_set_led_on
       data:
         entity_id: "fan.xiaomi_miio_device"

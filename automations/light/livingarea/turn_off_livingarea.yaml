@@ -4,17 +4,26 @@
      entity_id: binary_sensor.rli_emu_00_smo
      to: 'off'
      for:
-      seconds: 30
-   - platform: numeric_state
-     entity_id: sensor.rli_emu_00_slu
-     above: 40
+      seconds: 20
+   - platform: state
+     entity_id: sensor.average_apartment_luminance
+   - platform: state
+     entity_id: media_player.samsung_tv_remote
   condition:
    - condition: template
-     value_template: "{{ not is_state('input_text.last_movement', 'Living area') }}"
-   - condition: state
-     entity_id: binary_sensor.rli_emu_00_smo
-     state: 'off'
+     value_template: "
+  {{
+    states('sensor.average_apartment_luminance') | float > states('input_number.light_threshold') | float  or 
+    (not is_state('input_text.last_movement', 'Living area') and is_state('binary_sensor.rli_emu_00_smo', 'off')) or 
+    is_state('media_player.samsung_tv_remote','on')
+  }}"  
   action:
    service: light.turn_off
-   data:
+   data_template:
     entity_id: light.livingarea
+    transition: >
+            {% if states.switch.circadian_lighting_circadian_lighting.attributes["brightness"] | int >= 10 %}
+              10
+            {% else %}
+              1
+            {% endif %}

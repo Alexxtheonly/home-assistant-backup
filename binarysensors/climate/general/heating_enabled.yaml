@@ -1,25 +1,11 @@
-platform: bayesian
-name: heating_enabled
-prior: 0.5
-probability_threshold: 0.85
-observations:
- - entity_id: sensor.average_apartment_temperature
-   prob_given_true: 0.6
-   prob_given_false: 0.6
-   platform: numeric_state
-   below: 17.5
- - entity_id: sensor.stats_outside_temperature_mean
-   prob_given_true: 0.6
-   prob_given_false: 0.1
-   platform: numeric_state
-   below: 15
- - entity_id: sensor.dark_sky_temperature
-   prob_given_true: 0.6
-   prob_given_false: 0.4
-   platform: numeric_state
-   below: 15
- - entity_id: season.season
-   prob_given_true: 0.6
-   prob_given_false: 0.1
-   platform: state
-   to_state: winter
+platform: template
+sensors:
+ heating_enabled:
+  friendly_name: Heating enabled
+  entity_id:
+   - sensor.stats_outside_temperature_mean
+   - sensor.average_apartment_temperature
+  value_template: 
+   '{{ 
+   (states.sensor.average_apartment_temperature.state | float) <= ((states.input_number.desired_temperature.state | float) + 0.2)
+   }}'

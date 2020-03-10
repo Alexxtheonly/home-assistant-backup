@@ -1,0 +1,5 @@
+platform: template
+sensors:
+ artificial_light:
+  friendly_name: Artificial light
+  value_template: "{{ (states.sensor.ambient_light.state | float ) < 1 }}"

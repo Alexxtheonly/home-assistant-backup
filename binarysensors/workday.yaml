@@ -1,3 +1,5 @@
 platform: workday
 country: DE
 province: BW
+workdays: [mon, tue, wed, thu, fri, sat]
+excludes: [sun, holiday]

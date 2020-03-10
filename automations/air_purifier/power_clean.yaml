@@ -8,7 +8,7 @@
      entity_id: binary_sensor.sleep
      state: 'off'
   action:
-    - service: fan.xiaomi_miio_set_favorite_level
+    - service: xiaomi_miio.fan_set_favorite_level
       data:
         entity_id: 'fan.xiaomi_miio_device'
         level: 17
