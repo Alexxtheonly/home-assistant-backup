@@ -5,7 +5,7 @@ sensors:
    value_template: >- 
     {{ 
       (((states('sensor.computer_today_energy_kwh') | float) + 
-      (states('sensor.dehumidifier_today_energy_kwh') | float) + 
+      (states('sensor.aquarium_today_energy_kwh') | float) + 
       (states('sensor.dishwasher_today_energy_kwh') | float) +
       (states('sensor.entertainment_today_energy_kwh') | float) +
       (states('sensor.freezer_today_energy_kwh') | float) +

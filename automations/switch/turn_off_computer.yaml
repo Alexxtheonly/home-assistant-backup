@@ -1,0 +1,15 @@
+- alias: Turn off entertainment when away or asleep
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.sleep
+      to: 'on'
+    - platform: state
+      entity_id: group.persons
+      to: 'not_home'
+  condition:
+    - condition: state
+      entity_id: input_boolean.turn_off_computer
+      state: 'on'
+  action:
+    - service: switch.turn_off
+      entity_id: switch.computer

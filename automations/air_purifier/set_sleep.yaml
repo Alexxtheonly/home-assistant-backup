@@ -1,0 +1,10 @@
+- alias: Set sleep mode
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.sleep
+      to: 'on'
+  action:
+    - service: xiaomi_miio.fan_set_favorite_level
+      data:
+        entity_id: 'fan.xiaomi_miio_device'
+        level: 0

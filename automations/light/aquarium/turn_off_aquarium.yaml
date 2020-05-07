@@ -1,0 +1,8 @@
+- id: turn of aquarium
+  alias: turn off aquarium light
+  trigger:
+    platform: time
+    at: '20:00'
+  action:
+    service: switch.turn_off
+    entity_id: switch.aquarium

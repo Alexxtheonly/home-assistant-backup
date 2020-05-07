@@ -8,6 +8,6 @@
      entity_id: group.persons
      state: 'home'
   action:
-    - service: climate.turn_on
-      data:
-        entity_id: "all"
+    - service: climate.set_temperature
+      data_template:
+       {"entity_id":"all","temperature":"{{ states.input_number.desired_temperature.state | float }}"}

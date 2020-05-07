@@ -1,17 +1,17 @@
 platform: template
 sensors:
- dehumidifier_current_a:
-  value_template: '{{ states.switch.dehumidifier.attributes["current_a"] | float }}'
+ aquarium_current_a:
+  value_template: '{{ states.switch.aquarium.attributes["current_a"] | float }}'
   unit_of_measurement: 'A'
- dehumidifier_current_power_w:
-   value_template: '{{ states.switch.dehumidifier.attributes["current_power_w"] | float }}'
+ aquarium_current_power_w:
+   value_template: '{{ states.switch.aquarium.attributes["current_power_w"] | float }}'
    unit_of_measurement: 'W'
- dehumidifier_total_energy_kwh:
-  value_template: '{{ states.switch.dehumidifier.attributes["total_energy_kwh"] | float }}'
+ aquarium_energy_kwh:
+  value_template: '{{ states.switch.aquarium.attributes["total_energy_kwh"] | float }}'
   unit_of_measurement: 'kWh'
- dehumidifier_voltage:
-   value_template: '{{ states.switch.dehumidifier.attributes["voltage"] | float }}'
+ aquarium_voltage:
+   value_template: '{{ states.switch.aquarium.attributes["voltage"] | float }}'
    unit_of_measurement: 'V'
- dehumidifier_today_energy_kwh:
-  value_template: '{{ states.switch.dehumidifier.attributes["today_energy_kwh"] | float }}'
+ aquarium_today_energy_kwh:
+  value_template: '{{ states.switch.aquarium.attributes["today_energy_kwh"] | float }}'
   unit_of_measurement: 'kWh'

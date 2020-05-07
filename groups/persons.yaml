@@ -1,5 +1,4 @@
 persons:
- name: Persons
- view: no
- entities:
-  - device_tracker.galaxy_s6_edge
+  name: Persons
+  entities:
+    - device_tracker.galaxy_s6_edge

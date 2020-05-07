@@ -3,6 +3,9 @@
    - platform: state
      entity_id: group.persons
      to: 'not_home'
+   - platform: state
+     entity_id: binary_sensor.sleep
+     to: 'on'
   action:
    service: light.turn_off
    data:

@@ -1,0 +1,10 @@
+- alias: 'Handle target temperature'
+  trigger:
+    platform: event
+    event_type: rhasspy_HandleTargetTemperature
+  action: 
+  - service: input_number.set_value
+    data_template:
+      entity_id: input_number.desired_temperature
+      value: >
+        {{ trigger.event.data.target | float }}
