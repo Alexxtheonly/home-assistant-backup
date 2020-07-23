@@ -4,7 +4,7 @@
      entity_id: group.persons
      to: 'not_home'
    - platform: state
-     entity_id: binary_sensor.sleep
+     entity_id: input_boolean.sleep_mode
      to: 'on'
   action:
    service: light.turn_off

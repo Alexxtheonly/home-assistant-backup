@@ -11,7 +11,7 @@
      entity_id: group.persons
      state: 'home'
    - condition: state
-     entity_id: binary_sensor.sleep
+     entity_id: input_boolean.sleep_mode
      state: 'off'
    - condition: numeric_state
      entity_id: sensor.average_apartment_humidity

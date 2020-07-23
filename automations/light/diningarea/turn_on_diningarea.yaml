@@ -12,7 +12,7 @@
      is_state('group.persons','home') and
      states('sensor.average_apartment_luminance') | float <= states('input_number.light_threshold') | float and 
      (is_state('input_text.last_movement','Dining area') or is_state('binary_sensor.rli_emu_01_smo','on')) and
-     is_state('binary_sensor.sleep','off')
+     is_state('input_boolean.sleep_mode','off')
    }}"
   action:
    service: light.turn_on

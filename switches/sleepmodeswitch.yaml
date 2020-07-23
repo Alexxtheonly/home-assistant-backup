@@ -1,0 +1,12 @@
+platform: template
+switches:
+  sleep_mode_switch:
+    value_template: '{{ states("input_boolean.sleep_mode") }}'
+    turn_on:
+      service: input_boolean.turn_on
+      data:
+        entity_id: input_boolean.sleep_mode
+    turn_off:
+      service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.sleep_mode

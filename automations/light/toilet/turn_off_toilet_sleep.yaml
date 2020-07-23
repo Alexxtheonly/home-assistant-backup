@@ -12,7 +12,7 @@
      entity_id: binary_sensor.rto_emu_smo
      state: 'off'
    - condition: state
-     entity_id: binary_sensor.sleep
+     entity_id: input_boolean.sleep_mode
      state: 'on' 
   action:
    service: light.turn_off

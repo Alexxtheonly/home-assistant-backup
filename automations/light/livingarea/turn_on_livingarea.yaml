@@ -15,7 +15,7 @@
      states('sensor.average_apartment_luminance') | float <= states('input_number.light_threshold') | float and 
      (is_state('input_text.last_movement','Living area') or is_state('binary_sensor.rli_emu_00_smo','on')) and
      is_state('media_player.samsung_tv','off') and
-     is_state('binary_sensor.sleep','off')
+     is_state('input_boolean.sleep_mode','off')
    }}"
   action:
    service: light.turn_on

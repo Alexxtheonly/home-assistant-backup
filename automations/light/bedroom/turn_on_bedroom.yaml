@@ -11,7 +11,7 @@
    {{
      is_state('group.persons','home') and
      states('sensor.average_apartment_luminance') | float <= states('input_number.light_threshold') | float and 
-     is_state('binary_sensor.sleep','off') and
+     is_state('input_boolean.sleep_mode','off') and
      (is_state('input_text.last_movement','Bedroom') or is_state('binary_sensor.rbe_emu_smo','on'))
    }}"
   action:

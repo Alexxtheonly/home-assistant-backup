@@ -17,7 +17,7 @@
    - condition: template
      value_template: "
   {{
-    is_state('binary_sensor.sleep','off') and
+    is_state('input_boolean.sleep_mode','off') and
     (states('sensor.average_apartment_luminance') | float > states('input_number.light_threshold') | float or 
     is_state('binary_sensor.rha_emu_smo', 'off'))
   }}"

@@ -8,7 +8,7 @@ lights_ct:
  - light.study
  - light.toilet
  - light.dining_area
-sleep_entity: binary_sensor.sleep
+sleep_entity: input_boolean.sleep_mode
 sleep_state: 'on'
 sleep_brightness: 10
 #disable_entity: entity_id to use to disable this switch.

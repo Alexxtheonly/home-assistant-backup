@@ -1,5 +1,0 @@
-platform: template
-sensors:
- sleep:
-  friendly_name: Sleep
-  value_template: "{{ is_state('light.bedroom', 'unavailable') }}"

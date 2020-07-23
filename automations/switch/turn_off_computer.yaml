@@ -1,7 +1,7 @@
-- alias: Turn off entertainment when away or asleep
+- alias: Turn off computer when away or asleep
   trigger:
     - platform: state
-      entity_id: binary_sensor.sleep
+      entity_id: input_boolean.sleep_mode
       to: 'on'
     - platform: state
       entity_id: group.persons

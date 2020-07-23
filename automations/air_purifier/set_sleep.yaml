@@ -1,10 +1,11 @@
 - alias: Set sleep mode
   trigger:
     - platform: state
-      entity_id: binary_sensor.sleep
+      entity_id: input_boolean.sleep_mode
       to: 'on'
+    - platform: state
+      entity_id: input_number.night_purifier_favorite_level
   action:
     - service: xiaomi_miio.fan_set_favorite_level
-      data:
-        entity_id: 'fan.xiaomi_miio_device'
-        level: 0
+      data_template:
+        {"entity_id": "fan.xiaomi_miio_device","level":"{{states('input_number.night_purifier_favorite_level') | int}}"}

@@ -13,7 +13,7 @@ homeassistant:
   # Customization file
   customize: !include customize.yaml
   whitelist_external_dirs:
-   - !secret snapshot_location
+   - /share/motioneye
 
 # Enables the frontend
 frontend:
@@ -162,13 +162,11 @@ alarm_control_panel:
   - platform: manual
     name: Home Alarm
     code: !secret alarm_code
-    pending_time: 30
-    delay_time: 30
-    trigger_time: 30
+    delay_time: 0
+    trigger_time: 0
     disarmed:
       trigger_time: 0
     armed_home:
-      pending_time: 0
       delay_time: 0
 
 fritzbox:
@@ -211,3 +209,8 @@ neato:
 mobile_app:
 
 ssdp:
+
+folder_watcher:
+  - folder: /share/motioneye
+    patterns: 
+      - '*.thumb'

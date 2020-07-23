@@ -1,0 +1,14 @@
+- id: change_sleep_mode
+  alias: Change sleep mode depending on bedroom light availability
+  trigger:
+      - platform: state
+        entity_id: light.bedroom
+  action:
+    service_template: >
+      {%- if light.bedroom == 'Unavailable' -%}
+        input_boolean.turn_on
+      {%- else -%}
+        input_boolean.turn_off
+      {%- endif -%}
+    data:
+      entity id: input_boolean.sleep_mode

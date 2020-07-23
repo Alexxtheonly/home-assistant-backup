@@ -1,14 +1,14 @@
 - id: '1567445629214'
   alias: Start dehumidifier
   trigger:
-  - entity_id: binary_sensor.sleep
+  - entity_id: input_boolean.sleep_mode
     platform: state
   - above: '42'
     entity_id: sensor.average_apartment_humidity
     platform: numeric_state
   condition:
   - condition: state
-    entity_id: binary_sensor.sleep
+    entity_id: input_boolean.sleep_mode
     state: 'off'
   - above: '42'
     condition: numeric_state

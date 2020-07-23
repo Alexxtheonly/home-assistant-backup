@@ -1,7 +1,7 @@
 - alias: Disarm when not asleep
   trigger:
    - platform: state
-     entity_id: binary_sensor.sleep
+     entity_id: input_boolean.sleep_mode
      to: 'off'
   condition:
    - condition: state

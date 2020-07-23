@@ -1,14 +1,13 @@
 - alias: 'Telegram send snapshots'
   trigger:
-   platform: event
-   event_type: telegram_callback
-   event_data:
-    data: '/camSnaps'
+    platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/cam'
   action:
-   - service: telegram_bot.send_photo
-     data:
-      file: '/share/snapshots/camera.living_area.jpg'
-   - service: telegram_bot.send_photo
-     data:
-      file: '/share/snapshots/camera.hallway.jpg'
-        
+    - service: telegram_bot.send_photo
+      data:
+        url: 'http://192.168.179.30:8123/api/camera_proxy/camera.ipcam_mainprofile?token={{ states.camera.ipcam_mainprofile.attributes.access_token }}'
+    - service: telegram_bot.send_photo
+      data:
+        url: 'http://192.168.179.30:8123/api/camera_proxy/camera.ipcam_mainprofile_2?token={{ states.camera.ipcam_mainprofile_2.attributes.access_token }}'
