@@ -1,5 +1,0 @@
-platform: template
-sensors:
- ambient_light:
-  friendly_name: 'Ambient Light'
-  value_template: '{{ "%.2f"|format((states.sun.sun.attributes.elevation/24)*((states.sun.sun.attributes.elevation/24)+(1-(states.sensor.dark_sky_cloud_coverage.state|int/100)))) }}'

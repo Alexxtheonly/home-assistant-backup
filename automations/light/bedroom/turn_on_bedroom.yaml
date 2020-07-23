@@ -1,20 +1,22 @@
 - alias: Turn on bedroom
   trigger:
-   - platform: state
-     entity_id: binary_sensor.rbe_emu_smo
-     to: 'on'
-   - platform: state
-     entity_id: sensor.rbe_emu_slu
+    - platform: state
+      entity_id: binary_sensor.rbe_emu_smo
+      to: 'on'
+    - platform: state
+      entity_id: sensor.rbe_emu_slu
+    - platform: state
+      entity_id: binary_sensor.artificial_light
   condition:
-   condition: template
-   value_template: "
-   {{
-     is_state('group.persons','home') and
-     states('sensor.average_apartment_luminance') | float <= states('input_number.light_threshold') | float and 
-     is_state('input_boolean.sleep_mode','off') and
-     (is_state('input_text.last_movement','Bedroom') or is_state('binary_sensor.rbe_emu_smo','on'))
-   }}"
+    condition: template
+    value_template: "
+    {{
+      is_state('group.persons','home') and
+      is_state('binary_sensor.artificial_light','on') and 
+      is_state('input_boolean.sleep_mode','off') and
+      (is_state('input_text.last_movement','Bedroom') or is_state('binary_sensor.rbe_emu_smo','on'))
+    }}"
   action:
-   service: light.turn_on
-   data:
-    entity_id: light.bedroom
+    service: light.turn_on
+    data:
+      entity_id: light.bedroom

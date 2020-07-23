@@ -1,5 +1,12 @@
 platform: template
 sensors:
- artificial_light:
-  friendly_name: Artificial light
-  value_template: "{{ (states.sensor.ambient_light.state | float ) < 1 }}"
+  artificial_light:
+    friendly_name: Artificial light
+    value_template: >-
+      {% if states.sun.sun.attributes.elevation | float < states.input_number.sun_elevation_light_threshold | float %}
+        true
+      {% elif states.sensor.dark_sky_cloud_coverage | float > input_number.cloud_cover_light_threshold | float %}
+        true
+      {% else %}
+        false
+      {% endif %}
