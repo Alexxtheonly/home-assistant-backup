@@ -1,24 +1,24 @@
 - alias: Turn off dining area
   trigger:
-   - platform: state
-     entity_id: binary_sensor.rli_emu_01_smo
-     to: 'off'
-     for:
-      seconds: 20
-   - platform: state
-     entity_id: sensor.average_apartment_luminance
+    - platform: state
+      entity_id: binary_sensor.rli_emu_01_smo
+      to: 'off'
+      for:
+        seconds: 20
+    - platform: state
+      entity_id: sensor.average_apartment_luminance
   condition:
-   - condition: template
-     value_template: "
+    - condition: template
+      value_template: "
   {{
-    states('sensor.average_apartment_luminance') | float > states('input_number.light_threshold') | float or 
+    is_state('binary_sensor.artificial_light','off') or 
     (not is_state('input_text.last_movement', 'Dining area') and is_state('binary_sensor.rli_emu_01_smo', 'off'))
   }}"  
   action:
-   service: light.turn_off
-   data_template:
-    entity_id: light.dining_area
-    transition: >
+    service: light.turn_off
+    data_template:
+      entity_id: light.dining_area
+      transition: >
             {% if states.switch.circadian_lighting_circadian_lighting.attributes["brightness"] | int >= 10 %}
               10
             {% else %}

@@ -1,12 +1,12 @@
 - alias: Turn off light when away
   trigger:
-   - platform: state
-     entity_id: group.persons
-     to: 'not_home'
-   - platform: state
-     entity_id: input_boolean.sleep_mode
-     to: 'on'
+    - platform: state
+      entity_id: group.persons
+      to: 'not_home'
+    - platform: state
+      entity_id: input_boolean.sleep_mode
+      to: 'on'
   action:
-   service: light.turn_off
-   data:
-    entity_id: all
+    service: light.turn_off
+    data:
+      entity_id: all

@@ -1,23 +1,23 @@
 - alias: Turn off bathroom
   trigger:
-   - platform: state
-     entity_id: binary_sensor.rba_emu_smo
-     to: 'off'
-     for:
-      seconds: 20
-   - platform: state
-     entity_id: sensor.average_apartment_luminance
-   - platform: state
-     entity_id: input_text.last_movement
+    - platform: state
+      entity_id: binary_sensor.rba_emu_smo
+      to: 'off'
+      for:
+        seconds: 20
+    - platform: state
+      entity_id: sensor.average_apartment_luminance
+    - platform: state
+      entity_id: input_text.last_movement
   condition:
-   - condition: template
-     value_template: "
+    - condition: template
+      value_template: "
   {{
-    (states('sensor.average_apartment_luminance') | float > states('input_number.light_threshold') | float) or 
+    is_state('binary_sensor.artificial_light','off') or 
     (not is_state('input_text.last_movement', 'Bathroom') and is_state('binary_sensor.rba_emu_smo', 'off'))
   }}"  
   action:
-   service: light.turn_off
-   data:
-    entity_id: light.bathroom
-    transition: 10
+    service: light.turn_off
+    data:
+      entity_id: light.bathroom
+      transition: 10
