@@ -5,7 +5,7 @@ sensors:
     value_template: >-
       {% if states.sun.sun.attributes.elevation | float < states.input_number.sun_elevation_light_threshold | float %}
         true
-      {% elif states.sensor.dark_sky_cloud_coverage | float > input_number.cloud_cover_light_threshold | float %}
+      {% elif states.sensor.dark_sky_cloud_coverage | float > states.input_number.cloud_cover_light_threshold | float %}
         true
       {% else %}
         false
