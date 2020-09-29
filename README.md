@@ -2,9 +2,6 @@ This is my humble hass.io configuration repository. It is and will forever be a 
 My main goal is to automate as much as posible to a near perfect level of efficiency.
 
 This readme will be gradually updated.
-
-[![Build Status](https://travis-ci.org/Alexxtheonly/home-assistant-backup.svg?branch=master)](https://travis-ci.org/Alexxtheonly/home-assistant-backup)
-
 *Last updated: 2020-09-29*
 
 ## Implemented automations
