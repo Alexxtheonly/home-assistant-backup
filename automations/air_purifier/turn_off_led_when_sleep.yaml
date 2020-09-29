@@ -1,9 +1,9 @@
 - alias: Turn off led when sleep
   trigger:
-   - platform: state
-     entity_id: input_boolean.sleep_mode
-     to: 'on'
+    - platform: state
+      entity_id: input_boolean.sleep_mode
+      to: "on"
   action:
-    - service: xiaomi_miio.remote_set_led_off
+    - service: xiaomi_miio.fan_set_led_off
       data:
         entity_id: "fan.xiaomi_miio_device"

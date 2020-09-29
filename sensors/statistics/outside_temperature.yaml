@@ -3,4 +3,4 @@ name: stats_outside_temperature
 entity_id: sensor.dark_sky_temperature
 sampling_size: 250
 max_age:
- minutes: 1440
+  minutes: 1440

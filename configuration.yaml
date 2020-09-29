@@ -13,11 +13,11 @@ homeassistant:
   # Customization file
   customize: !include customize.yaml
   whitelist_external_dirs:
-   - /share/motioneye
+    - /share/motioneye
 
 # Enables the frontend
 frontend:
- themes: !include_dir_merge_named themes
+  themes: !include_dir_merge_named themes
 
 # Enables configuration UI
 config:
@@ -38,7 +38,7 @@ api:
 # For more information, please see:
 # https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
 updater:
- reporting: false
+  reporting: false
 
 # Discover some devices automatically
 discovery:
@@ -76,7 +76,7 @@ sensor: !include_dir_list sensors
 #  homeassistant.components.shell_command: debug
 
 system_log:
- fire_event: true
+  fire_event: true
 
 group: !include_dir_merge_named groups
 automation: !include_dir_merge_list automations
@@ -85,24 +85,24 @@ device_tracker: !include_dir_list device_tracker
 zone: !include_dir_list zones
 
 panel_custom:
- - name: floorplan
-   sidebar_title: Floorplan
-   sidebar_icon: mdi:home
-   url_path: floorplan
-   config: !include floorplan.yaml
+  - name: floorplan
+    sidebar_title: Floorplan
+    sidebar_icon: mdi:home
+    url_path: floorplan
+    config: !include floorplan.yaml
 
 telegram_bot:
- - platform: polling
-   api_key: !secret telegram_bot_api_key
-   allowed_chat_ids:
-    - !secret alex_telegram_chat_id
+  - platform: polling
+    api_key: !secret telegram_bot_api_key
+    allowed_chat_ids:
+      - !secret alex_telegram_chat_id
 
 notify: !include_dir_list notify-platforms
 
 zwave:
- usb_path: /dev/ttyACM0
- network_key: !secret zwave_key
- polling_interval: 30000
+  usb_path: /dev/ttyACM0
+  network_key: !secret zwave_key
+  polling_interval: 30000
 
 switch: !include_dir_list switches
 
@@ -111,22 +111,22 @@ camera: !include_dir_list cameras
 input_boolean: !include_dir_merge_named input_booleans
 
 recorder:
- purge_keep_days: 1
- exclude:
-  entities:
-   - sensor.fritz_netmonitor
-  domains:
-   - automation
-   - camera
-   - group
-   - media_player
-   - updater
-   - persistent_notification
-   - sun
-   - switch
-   - weather
-   - zone
-   - zwave
+  purge_keep_days: 1
+  exclude:
+    entities:
+      - sensor.fritz_netmonitor
+    domains:
+      - automation
+      - camera
+      - group
+      - media_player
+      - updater
+      - persistent_notification
+      - sun
+      - switch
+      - weather
+      - zone
+      - zwave
 
 influxdb:
   host: localhost
@@ -137,20 +137,20 @@ influxdb:
   max_retries: 3
   default_measurement: state
   exclude:
-   entities:
-    - sensor.fritz_netmonitor
-   domains:
-    - automation
-    - camera
-    - group
-    - media_player
-    - updater
-    - persistent_notification
-    - sun
-    - switch
-    - weather
-    - zone
-    - zwave
+    entities:
+      - sensor.fritz_netmonitor
+    domains:
+      - automation
+      - camera
+      - group
+      - media_player
+      - updater
+      - persistent_notification
+      - sun
+      - switch
+      - weather
+      - zone
+      - zwave
 
 panel_iframe: !include_dir_merge_named iframe_panels
 
@@ -171,23 +171,16 @@ alarm_control_panel:
 
 fritzbox:
   devices:
-   - host: 192.168.179.1
-     username: smart
-     password: a1b2c3d4
-
-speedtestdotnet:
- monitored_conditions:
-  - ping
-  - download
-  - upload
- scan_interval: '12:00'
+    - host: 192.168.179.1
+      username: smart
+      password: a1b2c3d4
 
 input_text: !include_dir_merge_named input_texts
 
 circadian_lighting:
- interval: 60
- transition: 60
- 
+  interval: 60
+  transition: 60
+
 fan: !include_dir_merge_named fans
 
 plant: !include_dir_merge_named plants
@@ -199,12 +192,12 @@ input_number: !include_dir_merge_named input_numbers
 intent_script: !include intents/intents.yaml
 
 hacs:
- token: !secret hacs_token
+  token: !secret hacs_token
 
 # Example configuration.yaml entry
 neato:
- username: !secret neato_user
- password: !secret neato_pass
+  username: !secret neato_user
+  password: !secret neato_pass
 
 mobile_app:
 
@@ -212,5 +205,5 @@ ssdp:
 
 folder_watcher:
   - folder: /share/motioneye
-    patterns: 
-      - '*.thumb'
+    patterns:
+      - "*.thumb"

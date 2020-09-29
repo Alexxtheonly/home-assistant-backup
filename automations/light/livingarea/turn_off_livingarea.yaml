@@ -8,14 +8,14 @@
     - platform: state
       entity_id: sensor.average_apartment_luminance
     - platform: state
-      entity_id: media_player.samsung_tv_remote
+      entity_id: input_boolean.entertainment_mode
   condition:
     - condition: template
       value_template: "
   {{
     is_state('binary_sensor.artificial_light','off') or 
     (not is_state('input_text.last_movement', 'Living area') and is_state('binary_sensor.rli_emu_00_smo', 'off')) or 
-    is_state('media_player.samsung_tv_remote','on')
+    is_state('input_boolean.entertainment_mode','on')
   }}"  
   action:
     service: light.turn_off

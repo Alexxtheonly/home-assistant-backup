@@ -6,7 +6,7 @@
     - platform: state
       entity_id: sensor.rli_emu_00_slu
     - platform: state
-      entity_id: media_player.samsung_tv_remote
+      entity_id: input_boolean.entertainment_mode
     - platform: state
       entity_id: binary_sensor.artificial_light
   condition:
@@ -16,7 +16,7 @@
       is_state('group.persons','home') and
       is_state('binary_sensor.artificial_light','on') and 
       (is_state('input_text.last_movement','Living area') or is_state('binary_sensor.rli_emu_00_smo','on')) and
-      is_state('media_player.samsung_tv','off') and
+      is_state('input_boolean.entertainment_mode','off') and
       is_state('input_boolean.sleep_mode','off')
     }}"
   action:

@@ -1,8 +1,8 @@
 - alias: Turn on led when awake
   trigger:
-   - platform: state
-     entity_id: input_boolean.sleep_mode
-     to: 'off'
+    - platform: state
+      entity_id: input_boolean.sleep_mode
+      to: "off"
   action:
     - service: xiaomi_miio.fan_set_led_on
       data:

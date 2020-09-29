@@ -8,4 +8,4 @@
       to: 'not_home'
   action:
     - service: switch.turn_off
-      entity_id: switch.entertainment
+      entity_id: switch.entertainment_mode_switch
