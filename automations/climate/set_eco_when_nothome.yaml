@@ -1,8 +1,10 @@
 - alias: Turn off heating when not home
   trigger:
-   - platform: state
-     entity_id: group.persons
-     to: 'not_home'
+    - platform: state
+      entity_id: group.persons
+    - platform: state
+      entity_id:
+        - input_boolean.air_mode
   action:
     - service: climate.turn_off
       data:

@@ -3,7 +3,7 @@
     platform: event
     event_type: rhasspy_HandleSwitch
   action: 
-  - service_template: >
+  - service: >
       {%- if trigger.event.data.state == 'on' -%}
         switch.turn_on
       {%- else -%}

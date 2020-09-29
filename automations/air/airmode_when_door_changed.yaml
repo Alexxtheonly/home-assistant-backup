@@ -1,0 +1,13 @@
+- alias: Set air mode when door state changes
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.rli_edo
+  action:
+    service: >
+      {%- if states('binary_sensor.rli_edo') == 'on' -%}
+        switch.turn_on
+      {%- else -%}
+        switch.turn_off
+      {%- endif -%}
+    data:
+      entity_id: input_boolean.air_mode

@@ -1,15 +1,24 @@
 - alias: Set heat when home
   trigger:
-   - platform: state
-     entity_id: group.persons
-     to: 'home'
-   - platform: state
-     entity_id: input_number.desired_temperature
+    - platform: state
+      entity_id: group.persons
+      to: "home"
+    - platform: state
+      entity_id: input_number.desired_temperature
+    - platform: state
+      entity_id: input_boolean.air_mode  
   condition:
-   - condition: state
-     entity_id: binary_sensor.heating_enabled
-     state: 'on'
+    - condition: state
+      entity_id: binary_sensor.heating_enabled
+      state: "on"
+    - condition: state
+      entity_id:
+        - input_boolean.air_mode
+      state: "off"  
   action:
     - service: climate.set_temperature
       data_template:
-       {"entity_id":"all","temperature":"{{ states.input_number.desired_temperature.state | float }}"}
+        {
+          "entity_id": "all",
+          "temperature": "{{ states.input_number.desired_temperature.state | float }}",
+        }

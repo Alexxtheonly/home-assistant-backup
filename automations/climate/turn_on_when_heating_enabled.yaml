@@ -1,13 +1,16 @@
 - alias: Turn on when heating enabled
   trigger:
-   - platform: state
-     entity_id: binary_sensor.heating_enabled
-     to: 'on'
+    - platform: state
+      entity_id: binary_sensor.heating_enabled
+      to: "on"
   condition:
-   - condition: state
-     entity_id: group.persons
-     state: 'home'
+    - condition: state
+      entity_id: group.persons
+      state: "home"
   action:
     - service: climate.set_temperature
       data_template:
-       {"entity_id":"all","temperature":"{{ states.input_number.desired_temperature.state | float }}"}
+        {
+          "entity_id": "all",
+          "temperature": "{{ states.input_number.desired_temperature.state | float }}",
+        }

@@ -3,7 +3,7 @@
     platform: event
     event_type: rhasspy_HandleClimate
   action: 
-  - service_template: >
+  - service: >
       {%- if trigger.event.data.state == 'on' -%}
         climate.set_temperature
       {%- else -%}

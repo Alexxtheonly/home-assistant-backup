@@ -3,7 +3,7 @@
     platform: event
     event_type: rhasspy_HandleLight 
   action: 
-  - service_template: >
+  - service: >
       {%- if trigger.event.data.state == 'on' -%}
         light.turn_on
       {%- else -%}
