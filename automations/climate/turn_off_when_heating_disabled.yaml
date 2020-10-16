@@ -3,6 +3,10 @@
     - platform: state
       entity_id: binary_sensor.heating_enabled
       to: "off"
+    - platform: state
+      entity_id:
+        - input_boolean.air_mode
+      to: "on"
   action:
     - service: climate.turn_off
       data:

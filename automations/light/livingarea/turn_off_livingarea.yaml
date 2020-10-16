@@ -9,6 +9,8 @@
       entity_id: sensor.average_apartment_luminance
     - platform: state
       entity_id: input_boolean.entertainment_mode
+    - platform: state
+      entity_id: input_text.last_movement      
   condition:
     - condition: template
       value_template: "
