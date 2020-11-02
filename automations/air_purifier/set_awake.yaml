@@ -2,9 +2,13 @@
   trigger:
     - platform: state
       entity_id: input_boolean.sleep_mode
-      to: 'off'
     - platform: state
       entity_id: input_number.day_purifier_favorite_level
+  condition:
+    - condition: state
+      entity_id:
+        - input_boolean.sleep_mode
+      state: 'off'
   action:
     - service: xiaomi_miio.fan_set_favorite_level
       data_template:

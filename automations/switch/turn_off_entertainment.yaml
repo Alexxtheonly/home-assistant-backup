@@ -6,6 +6,7 @@
     - platform: state
       entity_id: group.persons
       to: 'not_home'
+      for: '0:20:00'
   action:
     - service: switch.turn_off
       entity_id: switch.entertainment_mode_switch

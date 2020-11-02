@@ -4,7 +4,7 @@
       entity_id: group.persons
       to: "home"
     - platform: state
-      entity_id: input_number.desired_temperature
+      entity_id: sensor.desired_temperature
     - platform: state
       entity_id: input_boolean.air_mode  
   condition:
@@ -20,5 +20,5 @@
       data_template:
         {
           "entity_id": "all",
-          "temperature": "{{ states.input_number.desired_temperature.state | float }}",
+          "temperature": "{{ states.sensor.desired_temperature.state | float }}",
         }

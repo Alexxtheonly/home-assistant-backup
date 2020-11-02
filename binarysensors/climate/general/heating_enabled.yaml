@@ -1,11 +1,8 @@
 platform: template
 sensors:
- heating_enabled:
-  friendly_name: Heating enabled
-  entity_id:
-   - sensor.stats_outside_temperature_mean
-   - sensor.average_apartment_temperature
-  value_template: 
-   '{{ 
-   (states.sensor.average_apartment_temperature.state | float) <= ((states.input_number.desired_temperature.state | float) + 0.2)
-   }}'
+  heating_enabled:
+    friendly_name: Heating enabled
+    entity_id:
+      - sensor.average_apartment_temperature
+    value_template: >-
+      {{(states.sensor.average_apartment_temperature.state | float) <= ((states.sensor.desired_temperature.state | float))}}

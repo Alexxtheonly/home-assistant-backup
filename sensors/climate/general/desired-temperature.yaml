@@ -1,0 +1,12 @@
+platform: template
+sensors:
+  desired_temperature:
+    entity_id:
+      - input_number.desired_temperature_night
+      - input_number.desired_temperature_day
+    value_template: >
+      {%- if states('input_boolean.sleep_mode') -%}
+        {{states('input_number.desired_temperature_day')}}
+      {%- else -%}
+        {{states('input_number.desired_temperature_night')}}
+      {%- endif -%}

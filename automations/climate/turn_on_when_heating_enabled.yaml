@@ -6,6 +6,9 @@
     - platform: state
       entity_id:
         - input_boolean.air_mode
+    - platform: state
+      entity_id:
+        - sensor.desired_temperature
   condition:
     - condition: state
       entity_id: group.persons
@@ -19,5 +22,5 @@
       data_template:
         {
           "entity_id": "all",
-          "temperature": "{{ states.input_number.desired_temperature.state | float }}",
+          "temperature": "{{ states.sensor.desired_temperature.state | float }}",
         }

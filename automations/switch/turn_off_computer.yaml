@@ -6,6 +6,7 @@
     - platform: state
       entity_id: group.persons
       to: 'not_home'
+      for: '0:20:00'
   condition:
     - condition: state
       entity_id: input_boolean.turn_off_computer

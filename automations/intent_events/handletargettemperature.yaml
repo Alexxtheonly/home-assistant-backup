@@ -5,6 +5,6 @@
   action: 
   - service: input_number.set_value
     data_template:
-      entity_id: input_number.desired_temperature
+      entity_id: input_number.desired_temperature_day
       value: >
         {{ trigger.event.data.target | float }}

@@ -17,4 +17,4 @@
           climate.{{ trigger.event.data.climate }}
         {%- endif -%}
       temperature: >
-        {{ states.input_number.desired_temperature.state | float }}
+        {{ states.input_number.desired_temperature_day.state | float }}
