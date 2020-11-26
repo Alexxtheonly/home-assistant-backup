@@ -6,7 +6,7 @@
     - platform: state
       entity_id: sensor.desired_temperature
     - platform: state
-      entity_id: input_boolean.air_mode  
+      entity_id: input_boolean.air_mode
   condition:
     - condition: state
       entity_id: binary_sensor.heating_enabled
@@ -14,7 +14,7 @@
     - condition: state
       entity_id:
         - input_boolean.air_mode
-      state: "off"  
+      state: "off"
   action:
     - service: climate.set_temperature
       data_template:

@@ -1,4 +1,4 @@
 persons:
   name: Persons
   entities:
-    - device_tracker.galaxy_s6_edge
+    - device_tracker.galaxy_s20_fe

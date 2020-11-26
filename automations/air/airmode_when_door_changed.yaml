@@ -4,7 +4,7 @@
       entity_id: binary_sensor.rli_edo
   action:
     service: >
-      {%- if states('binary_sensor.rli_edo') == 'on' -%}
+      {%- if states('binary_sensor.rli_edo') -%}
         switch.turn_on
       {%- else -%}
         switch.turn_off

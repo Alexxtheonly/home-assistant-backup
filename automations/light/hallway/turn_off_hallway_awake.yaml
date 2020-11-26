@@ -10,6 +10,9 @@
       to: 'off'
       for: 
         minutes: 2
+    - platform: state
+      entity_id:
+        - binary_sensor.artificial_light        
   condition:
     - condition: state
       entity_id: binary_sensor.rha_edo

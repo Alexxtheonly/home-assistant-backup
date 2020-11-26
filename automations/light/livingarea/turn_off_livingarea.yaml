@@ -10,7 +10,10 @@
     - platform: state
       entity_id: input_boolean.entertainment_mode
     - platform: state
-      entity_id: input_text.last_movement      
+      entity_id: input_text.last_movement   
+    - platform: state
+      entity_id:
+        - binary_sensor.artificial_light         
   condition:
     - condition: template
       value_template: "

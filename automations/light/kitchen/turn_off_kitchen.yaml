@@ -7,6 +7,9 @@
       entity_id: sensor.average_apartment_luminance
     - platform: state
       entity_id: input_text.last_movement
+    - platform: state
+      entity_id:
+        - binary_sensor.artificial_light      
   condition:
     - condition: template
       value_template: "

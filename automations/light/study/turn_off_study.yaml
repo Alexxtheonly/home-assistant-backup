@@ -9,12 +9,10 @@
       entity_id: sensor.average_apartment_luminance
     - platform: state
       entity_id: input_text.last_movement
+    - platform: state
+      entity_id:
+        - binary_sensor.artificial_light
   condition:
-    - condition: template
-      value_template: "{{ not is_state('input_text.last_movement', 'Study') }}"
-    - condition: state
-      entity_id: binary_sensor.rst_emu_smo
-      state: 'off'
     - condition: template
       value_template: "
   {{
