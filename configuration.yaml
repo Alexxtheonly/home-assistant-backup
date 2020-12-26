@@ -14,6 +14,7 @@ homeassistant:
   customize: !include customize.yaml
   whitelist_external_dirs:
     - /share/motioneye
+  internal_url: "http://192.168.179.30:8123"
 
 # Enables the frontend
 frontend:
@@ -27,10 +28,7 @@ system_health:
 scene: !include scenes.yaml
 
 api:
-
 # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
-# http:
-#   base_url: example.duckdns.org:8123
 
 # Checks for available updates
 # Note: This component will send some information about your system to
@@ -83,13 +81,6 @@ automation: !include_dir_merge_list automations
 script: !include_dir_list scripts
 device_tracker: !include_dir_list device_tracker
 zone: !include_dir_list zones
-
-panel_custom:
-  - name: floorplan
-    sidebar_title: Floorplan
-    sidebar_icon: mdi:home
-    url_path: floorplan
-    config: !include floorplan.yaml
 
 telegram_bot:
   - platform: polling
@@ -152,8 +143,6 @@ influxdb:
       - zone
       - zwave
 
-panel_iframe: !include_dir_merge_named iframe_panels
-
 binary_sensor: !include_dir_list binarysensors
 
 shell_command: !include_dir_merge_named shellcommands
@@ -172,8 +161,8 @@ alarm_control_panel:
 fritzbox:
   devices:
     - host: 192.168.179.1
-      username: smart
-      password: a1b2c3d4
+      username: !secret fritzbox_user
+      password: !secret fritzbox_pass
 
 input_text: !include_dir_merge_named input_texts
 
@@ -183,21 +172,12 @@ circadian_lighting:
 
 fan: !include_dir_merge_named fans
 
-plant: !include_dir_merge_named plants
-
-media_player: !include_dir_merge_named media_players
-
 input_number: !include_dir_merge_named input_numbers
 
 intent_script: !include intents/intents.yaml
 
 hacs:
   token: !secret hacs_token
-
-# Example configuration.yaml entry
-neato:
-  username: !secret neato_user
-  password: !secret neato_pass
 
 mobile_app:
 
@@ -207,3 +187,12 @@ folder_watcher:
   - folder: /share/motioneye
     patterns:
       - "*.thumb"
+
+roomba:
+  - host: iRobot-786EACA958A24D449430CAC277262532
+    blid: !secret roomba_blid
+    password: !secret roomba_pass
+
+spotify:
+  client_id: !secret spotify_client_id
+  client_secret: !secret spotify_client_secret

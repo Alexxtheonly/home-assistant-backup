@@ -1,7 +1,0 @@
-test_plant:
- sensors: 
-  moisture: sensor.testplant_moisture
-  battery: sensor.testplant_battery
-  temperature: sensor.testplant_temperature
-  conductivity: sensor.testplant_conductivity
-  brightness: sensor.testplant_light_intensity

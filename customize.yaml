@@ -1,0 +1,4 @@
+sensor.average_apartment_temperature:
+  device_class: temperature
+binary_sensor.rli_edo:
+  device_class: door

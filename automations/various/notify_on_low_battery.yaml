@@ -1,0 +1,11 @@
+- alias: Low battery level detection & notification for all battery sensors
+  description: ''
+  use_blueprint:
+    path: sbyx/low-battery-level-detection-notification-for-all-battery-sensors.yaml
+    input:
+      day: '0'
+      actions:
+      - service: notify.pushover_notification
+        data:
+          message: Sensor {{sensors}} is low on battery.
+          title: Sensor low on battery

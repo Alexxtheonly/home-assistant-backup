@@ -1,0 +1,52 @@
+blueprint:
+  name: Turn off power when loading finished
+  description: If charging anything and charging is done the power consumtion will
+    fall under a set level and the switch will turn off so your charging devices stop
+    loading to save battery life
+  domain: automation
+  input:
+    charger_relay:
+      name: Charger Switch
+      description: The switch that toggles the power
+      selector:
+        entity:
+          domain: switch
+    charger_wattage:
+      name: Charger Wattage
+      description: Entity that show the actual power consumption
+      selector:
+        entity:
+          domain: sensor
+    wattage_threshold:
+      name: Wattage threshold
+      description: How much power do the connected devies use if everything is loaded?
+        For example if everything is loaded used power will be under 1.2W then toggle
+        switch off.
+      default: 1.2
+      selector:
+        number:
+          min: 0.0
+          max: 10.0
+          step: 0.1
+          unit_of_measurement: Watt
+          mode: slider
+    actions:
+      name: What to do
+      description: what to do after charging finished? Maybe send a notification to
+        mobile or alexa to give you an info?
+      selector:
+        action: {}
+  source_url: https://gist.github.com/skycryer/09c02a50be8ce81020e28b85bd65d073
+trigger:
+- below: !input 'wattage_threshold'
+  entity_id: !input 'charger_wattage'
+  platform: numeric_state
+condition:
+- condition: state
+  entity_id: !input 'charger_relay'
+  state: 'on'
+action:
+- entity_id: !input 'charger_relay'
+  service: switch.turn_off
+- choose:
+  default: !input 'actions'

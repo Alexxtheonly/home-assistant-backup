@@ -1,19 +1,19 @@
 - alias: Trigger alarm while asleep
   trigger:
-   - platform: state
-     entity_id: binary_sensor.rha_edo
-     to: 'on'
-   - platform: state
-     entity_id: binary_sensor.rli_edo
-     to: 'on'
+    - platform: state
+      entity_id: binary_sensor.rha_edo
+      to: "on"
+    - platform: state
+      entity_id: binary_sensor.rli_edo
+      to: "on"
   condition:
-   - condition: state
-     entity_id: alarm_control_panel.home_alarm
-     state: armed_night
+    - condition: state
+      entity_id: alarm_control_panel.home_alarm
+      state: armed_night
   action:
-   - service: alarm_control_panel.alarm_trigger
-     entity_id: alarm_control_panel.home_alarm
-   - service: camera.snapshot
-     data:
-      entity_id: camera.hallway, camera.living_area
-      filename: '/share/snapshots/{{ entity_id.entity_id }}.jpg'
+    - service: alarm_control_panel.alarm_trigger
+      entity_id: alarm_control_panel.home_alarm
+    - service: camera.snapshot
+      data:
+        entity_id: camera.hallway, camera.living_area
+        filename: "/share/snapshots/{{ entity_id.entity_id }}.jpg"

@@ -1,16 +1,16 @@
 - alias: Disable motion detection when disarmed
   trigger:
-   - platform: state
-     entity_id: alarm_control_panel.home_alarm
-     to: disarmed
+    - platform: state
+      entity_id: alarm_control_panel.home_alarm
+      to: disarmed
   action:
-   - service: shell_command.toggle_motion_detection
-     data:
-      ip: !secret hassio_ip
-      cam: 1
-      action: pause
-   - service: shell_command.toggle_motion_detection
-     data:
-      ip: !secret hassio_ip
-      cam: 2
-      action: pause
+    - service: shell_command.toggle_motion_detection
+      data:
+        ip: !secret hassio_ip
+        cam: 1
+        action: pause
+    - service: shell_command.toggle_motion_detection
+      data:
+        ip: !secret hassio_ip
+        cam: 2
+        action: pause

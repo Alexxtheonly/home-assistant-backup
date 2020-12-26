@@ -1,0 +1,68 @@
+blueprint:
+  name: Heat control with persons and airing conditions as well as desired temperature setting
+  description: Heat control. Based on persons present, desired temperature and whether ventilation is taking place.
+  domain: automation
+  input:
+    current_temperature:
+      name: Current temperature entity
+      description: This sensors value will be used to determine the current temperature.
+      selector:
+        entity:
+          domain: sensor
+          device_class: temperature
+    desired_temperature:
+      name: Desired temperature
+      description: This number_input will be used to set the desired temperature
+      selector:
+        entity:
+          domain: input_number
+    thermostat:
+      name: Thermostat
+      description: The thermostat whose temperature is to be set 
+      selector:
+        entity:
+          domain: climate
+    persons:
+      name: Persons
+      description: Group of persons based on their state heating will be active
+      selector:
+        entity:
+          domain: group
+    airing:
+      name: Airing
+      description: As long as this sensor is true heating will be suspended
+      selector:
+        entity:
+          domain: binary_sensor
+
+variables:
+  desired_temp: '{{ (states[desired_temperature].state | float) }}'
+  temperature_too_low: '{{ (states[current_temperature].state | float) < desired_temp }}'
+  persons_at_home: '{{ states[persons].state == ''home'' }}'
+  not_airing: '{{ states[airing].state == ''off'' }}'
+
+trigger:
+- platform: state
+  entity_id: !input current_temperature
+- platform: state
+  entity_id: !input desired_temperature
+- platform: state
+  entity_id: !input persons
+- platform: state
+  entity_id: !input airing
+
+action:
+  - choose:
+    - conditions:
+      - '{{ temperature_too_low }}'
+      - '{{ persons_at_home }}'
+      - '{{ not_airing }}'
+      sequence:
+      - service: climate.set_temperature
+        data:
+          entity_id: !input thermostat
+          temperature: '{{ desired_temp }}'
+    default:
+      - service: climate.turn_off
+        data:
+          entity_id: !input thermostat
