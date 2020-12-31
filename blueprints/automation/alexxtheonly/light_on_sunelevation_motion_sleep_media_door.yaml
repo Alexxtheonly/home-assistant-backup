@@ -58,13 +58,6 @@ blueprint:
           max: 100
           mode: slider
           step: 1.0
-    sun:
-      name: Sun entity (optional)
-      description: Setting this will enable sun elevation light control
-      default:
-      selector:
-        entity:
-          domain: sun
     sun_elevation:
       name: Highest elevation for artificial light
       description: If elevation is above this value, light will be turned off
@@ -86,8 +79,10 @@ blueprint:
       name: Door sensor (optional)
       default:
       selector:
-        entity:
-          domain: door
+        target:
+          entity:
+            domain: binary_sensor
+            device_class: door
     door_light_behavior:
       name: Light behavior when door is closed
       description: When 'true' light will be turned off, when door is closed. When 'false' light will be turned on, when door is open.
@@ -96,43 +91,55 @@ blueprint:
         boolean: {}
 
 variables:
-  sun_elevation_condition: '{{ sun == none or ((state_attr(sun,''elevation'') | float) <= sun_elevation) }}'
-  media_player_condition: '{{ media_player == none or states[media_player].state != ''playing'' }}'
-  door_sensor_condition: '{{ door_sensor == none or (states[door_sensor].state == ''on'' ) == door_light_behavior }}'
-  light_transition_value: '{{ light_transition_awake if (states[sleep].state == ''on'') else light_transition_sleep }}'
-  last_room_movement_condition: '{{ last_room_movement == none or last_room_movement == room_name }}'
-  persons_home_condition: '{{ state[persons].state == ''home'' }}'
-  sleep_light_condition: '{{ sleep == none or (states[sleep].state == ''on'') == sleep_light_on }}'
-  motion_condition: '{{ state[motion_sensor].state == ''on'' }}'
+  sun_elevation_value: !input sun_elevation
+  door_light_behavior_value: !input door_light_behavior
+  light_transition_awake_value: !input light_transition_awake
+  light_transition_sleep_value: !input light_transition_sleep
+  last_room_movement_value: !input last_room_movement
+  room_name_value: !input room_name
+  sleep_light_on_value: !input sleep_light_on
+  motion_sensor_value: !input motion_sensor
+  sleep_value: !input sleep
+  persons_value: !input persons
+  sun_elevation_condition: '{{ ((state_attr(''sun.sun'',''elevation'') | float) <= (sun_elevation_value | float)) }}'
+#  media_player_condition: '{{ media_player == none or states[media_player].state != ''playing'' }}'
+#  door_sensor_condition: '{{ door_sensor == none or (states[door_sensor].state == ''on'' ) == door_light_behavior_value }}'
+  light_transition_value: '{{ light_transition_awake_value if (states[sleep_value].state == ''on'') else light_transition_sleep_value }}'
+  last_room_movement_condition: '{{ last_room_movement_value == none or last_room_movement_value != room_name_value }}'
+  persons_home_condition: '{{ states[persons_value].state == ''home'' }}'
+  sleep_light_condition: '{{ sleep_value == none or states[sleep_value].state == ''off'' or (states[sleep_value].state == ''on'') == sleep_light_on_value }}'
+  motion_condition: '{{ states[motion_sensor_value].state == ''on'' }}'
 
 trigger:
   - platform: state
-    target: !input last_room_movement
+    entity_id: !input last_room_movement
   - platform: state
-    target: !input motion_sensor
+    entity_id: !input motion_sensor
   - platform: state
-    target: !input persons
-  - platform: state
-    target: !input sleep
-  - platform: state
-    target: !input sun
-  - platform: state
-    target: !input media_player
-  - platform: state
-    target: !input door_sensor
+    entity_id: sun.sun
+# it is currently not possible to use null triggers. so i have to settle with these.
 
 action:
   - choose:
     - conditions:
       - '{{ sun_elevation_condition }}'
-      - '{{ media_player_condition }}'
-      - '{{ door_sensor_condition }}'
+#      - '{{ media_player_condition }}'
+#      - '{{ door_sensor_condition }}'
       - '{{ persons_home_condition }}'
       - '{{ sleep_light_condition }}'
       - '{{ motion_condition }}'
       sequence:
       - service: light.turn_on
         target: !input light
+      - service: input_text.set_value
+        data: 
+          entity_id: !input last_room_movement
+          value: !input room_name
+      - wait_for_trigger:
+        platform: state
+        entity_id: !input motion_sensor
+        from: 'on'
+        to: 'off'
     - conditions:
       - '{{ last_room_movement_condition }}'
       sequence:
@@ -140,8 +147,8 @@ action:
         target: !input light
         data:
           transition: '{{ light_transition_value }}'
-    - conditions:
-      - '{{ not persons_home_condition }}'
-      sequence:
-      - service: light.turn_off
-        target: !input light
+#    - conditions:
+#      - '{{ not persons_home_condition }}'
+#      sequence:
+#      - service: light.turn_off
+#        target: !input light
