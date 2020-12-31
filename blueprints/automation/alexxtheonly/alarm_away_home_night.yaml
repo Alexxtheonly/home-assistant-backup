@@ -1,0 +1,51 @@
+blueprint:
+  name: Arm Alarm when away or sleeping. Disarm, when at home
+  domain: automation
+  input:
+    alarmpanel:
+      name: Alarmpanel
+      selector:
+        entity:
+    persons:
+      name: Persons
+      selector:
+        entity:
+          domain: group
+    sleep:
+      name: Sleep sensor
+      selector:
+        entity:
+          domain: input_boolean
+
+variables:
+  someone_at_home: '{{ states[persons].state == ''home'' }}'
+  sleeping: '{{ states[sleep].state }}'
+
+trigger:
+  - platform: state
+    entity_id: !input persons
+  - platform: state
+    entity_id: !input sleep
+
+action:
+  - choose:
+    - conditions:
+      - '{{ someone_at_home }}'
+      - '{{ not sleeping }}'
+      sequence:
+        - service: alarm_control_panel.alarm_disarm
+          data:
+            entity_id: !input alarmpanel
+    - conditions:
+      - '{{ not someone_at_home }}'
+      sequence:
+        - service: alarm_control_panel.alarm_arm_away
+          data:
+            entity_id: !input alarmpanel
+    - conditions:
+      - '{{ someone_at_home }}'
+      - '{{ sleeping }}'
+      sequence:
+        - service: alarm_control_panel.alarm_arm_night
+          data:
+            entity_id: !input alarmpanel

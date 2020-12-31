@@ -2,3 +2,21 @@ sensor.average_apartment_temperature:
   device_class: temperature
 binary_sensor.rli_edo:
   device_class: door
+binary_sensor.rba_emu_smo:
+  device_class: motion
+binary_sensor.rst_emu_smo:
+  device_class: motion
+binary_sensor.rbe_emu_smo:
+  device_class: motion
+binary_sensor.rha_emu_smo:
+  device_class: motion
+binary_sensor.rli_emu_00_smo:
+  device_class: motion
+binary_sensor.rli_emu_01_smo:
+  device_class: motion
+binary_sensor.rto_emu_smo:
+  device_class: motion
+binary_sensor.rki_emu_smo:
+  device_class: motion
+binary_sensor.rha_edo:
+  device_class: door

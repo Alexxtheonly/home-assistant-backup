@@ -1,0 +1,148 @@
+blueprint:
+  name: Turns light on or off based on persons at home, sun elevation, motion, last movement, sleep, media playing, door open/closed.
+  domain: automation
+  input:
+    room_name:
+      name: Name of the room
+    light:
+      name: Light(s) to control
+      selector:
+        target:
+          entity:
+            domain: light
+    last_room_movement:
+      name: Last room with detected movement (optional)
+      default: none
+      selector:
+        entity:
+          domain: input_text
+    motion_sensor:
+      name: Motion sensor
+      selector:
+        entity:
+          domain: binary_sensor
+          device_class: motion
+    persons:
+      name: Persons
+      selector:
+        entity:
+          domain: group
+    sleep:
+      name: Sleep boolean (optional)
+      default: none
+      selector:
+        entity:
+          domain: input_boolean
+    sleep_light_on:
+      name: Turn on light when sleep 'true'
+      default: false
+      selector:
+        boolean: {}
+    light_transition_awake:
+      name: Light transition when awake
+      description: Time in seconds
+      default: 10
+      selector:
+        number:
+          min: 0.0
+          max: 100
+          mode: slider
+          step: 1.0
+    light_transition_sleep:
+      name: Light transition when asleep
+      description: Time in seconds
+      default: 0
+      selector:
+        number:
+          min: 0.0
+          max: 100
+          mode: slider
+          step: 1.0
+    sun:
+      name: Sun entity (optional)
+      description: Setting this will enable sun elevation light control
+      default: none
+      selector:
+        entity:
+          domain: sun
+    sun_elevation:
+      name: Highest elevation for artificial light
+      description: If elevation is above this value, light will be turned off
+      default: 5
+      selector:
+        number:
+          min: -5
+          max: 10
+          mode: slider
+          step: 0.5
+    media_player:
+      name: Media player (optional)
+      description: Turns off the light when state is 'playing'
+      default: none
+      selector:
+        entity:
+          domain: media_player
+    door_sensor:
+      name: Door sensor (optional)
+      default: none
+      selector:
+        entity:
+          domain: door
+    door_light_behavior:
+      name: Light behavior when door is closed
+      description: When 'true' light will be turned off, when door is closed. When 'false' light will be turned on, when door is open.
+      selector:
+        boolean: {}
+
+variables:
+  sun_elevation_condition: '{{ sun == none or ((state_attr(sun,''elevation'') | float) <= sun_elevation) }}'
+  media_player_condition: '{{ media_player == none or states[media_player].state != ''playing'' }}'
+  door_sensor_condition: '{{ door_sensor == none or (states[door_sensor].state == ''on'' ) == door_light_behavior }}'
+  light_transition_value: '{{ light_transition_awake if (states[sleep].state == ''on'') else light_transition_sleep }}'
+  last_room_movement_condition: '{{ last_room_movement == none or last_room_movement == room_name }}'
+  persons_home_condition: '{{ state[persons].state == ''home'' }}'
+  sleep_light_condition: '{{ sleep == none or (states[sleep].state == ''on'') == sleep_light_on }}'
+  motion_condition: '{{ state[motion_sensor].state == ''on'' }}'
+
+trigger:
+  - platform: state
+    entity_id: !input last_room_movement
+  - platform: state
+    entity_id: !input motion_sensor
+  - platform: state
+    entity_id: !input persons
+  - platform: state
+    entity_id: !input sleep
+  - platform: state
+    entity_id: !input sun
+  - platform: state
+    entity_id: !input media_player    
+  - platform: state
+    entity_id: !input door_sensor
+
+action:
+  - choose:
+    - conditions:
+      - '{{ sun_elevation_condition }}'
+      - '{{ media_player_condition }}'
+      - '{{ door_sensor_condition }}'
+      - '{{ persons_home_condition }}'
+      - '{{ sleep_light_condition }}'
+      - '{{ motion_condition }}'
+      sequence:
+      - service: light.turn_on
+        data:
+          entity_id: !input light
+    - conditions:
+      - '{{ last_room_movement_condition }}'
+      sequence:
+      - service: light.turn_off
+        data:
+          entity_id: !input light
+          transition: '{{ light_transition_value }}'
+    - conditions:
+      - '{{ not persons_home_condition }}'
+      sequence:
+      - service: light.turn_off
+        data:
+          entity_id: !input light
