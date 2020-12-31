@@ -12,7 +12,7 @@ blueprint:
             domain: light
     last_room_movement:
       name: Last room with detected movement (optional)
-      default: none
+      default:
       selector:
         entity:
           domain: input_text
@@ -29,7 +29,7 @@ blueprint:
           domain: group
     sleep:
       name: Sleep boolean (optional)
-      default: none
+      default:
       selector:
         entity:
           domain: input_boolean
@@ -61,7 +61,7 @@ blueprint:
     sun:
       name: Sun entity (optional)
       description: Setting this will enable sun elevation light control
-      default: none
+      default:
       selector:
         entity:
           domain: sun
@@ -78,19 +78,20 @@ blueprint:
     media_player:
       name: Media player (optional)
       description: Turns off the light when state is 'playing'
-      default: none
+      default:
       selector:
         entity:
           domain: media_player
     door_sensor:
       name: Door sensor (optional)
-      default: none
+      default:
       selector:
         entity:
           domain: door
     door_light_behavior:
       name: Light behavior when door is closed
       description: When 'true' light will be turned off, when door is closed. When 'false' light will be turned on, when door is open.
+      default: false
       selector:
         boolean: {}
 
@@ -106,19 +107,19 @@ variables:
 
 trigger:
   - platform: state
-    entity_id: !input last_room_movement
+    target: !input last_room_movement
   - platform: state
-    entity_id: !input motion_sensor
+    target: !input motion_sensor
   - platform: state
-    entity_id: !input persons
+    target: !input persons
   - platform: state
-    entity_id: !input sleep
+    target: !input sleep
   - platform: state
-    entity_id: !input sun
+    target: !input sun
   - platform: state
-    entity_id: !input media_player    
+    target: !input media_player
   - platform: state
-    entity_id: !input door_sensor
+    target: !input door_sensor
 
 action:
   - choose:
@@ -131,18 +132,16 @@ action:
       - '{{ motion_condition }}'
       sequence:
       - service: light.turn_on
-        data:
-          entity_id: !input light
+        target: !input light
     - conditions:
       - '{{ last_room_movement_condition }}'
       sequence:
       - service: light.turn_off
+        target: !input light
         data:
-          entity_id: !input light
           transition: '{{ light_transition_value }}'
     - conditions:
       - '{{ not persons_home_condition }}'
       sequence:
       - service: light.turn_off
-        data:
-          entity_id: !input light
+        target: !input light

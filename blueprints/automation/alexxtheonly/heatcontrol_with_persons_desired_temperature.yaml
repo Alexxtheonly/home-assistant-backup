@@ -45,13 +45,13 @@ variables:
 
 trigger:
   - platform: state
-    entity_id: !input current_temperature
+    target: !input current_temperature
   - platform: state
-    entity_id: !input desired_temperature
+    target: !input desired_temperature
   - platform: state
     entity_id: !input persons
   - platform: state
-    entity_id: !input airing
+    target: !input airing
 
 action:
   - choose:
@@ -61,10 +61,9 @@ action:
       - '{{ not_airing }}'
       sequence:
       - service: climate.set_temperature
+        target: !input thermostat
         data:
-          entity_id: !input thermostat
           temperature: '{{ desired_temp }}'
     default:
       - service: climate.turn_off
-        data:
-          entity_id: !input thermostat
+        target: !input thermostat
