@@ -27,6 +27,13 @@ system_health:
 
 scene: !include scenes.yaml
 
+http:
+  server_port: 8123
+  ip_ban_enabled: true
+  login_attempts_threshold: 3
+  ssl_certificate: /ssl/fullchain.pem
+  ssl_key: /ssl/privkey.pem
+
 api:
 # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
 
@@ -89,11 +96,6 @@ telegram_bot:
       - !secret alex_telegram_chat_id
 
 notify: !include_dir_list notify-platforms
-
-zwave:
-  usb_path: /dev/ttyACM0
-  network_key: !secret zwave_key
-  polling_interval: 30000
 
 switch: !include_dir_list switches
 
