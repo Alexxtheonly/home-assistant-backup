@@ -1,7 +1,7 @@
 - alias: Turn on living area
   trigger:
     - platform: state
-      entity_id: binary_sensor.rli_emu_00_smo
+      entity_id: binary_sensor.zw100_multisensor_6_home_security_motion_detected_7
       to: 'on'
     - platform: state
       entity_id: sensor.rli_emu_00_slu
@@ -15,7 +15,7 @@
     {{
       is_state('group.persons','home') and
       is_state('binary_sensor.artificial_light','on') and 
-      (is_state('input_text.last_movement','Living area') or is_state('binary_sensor.rli_emu_00_smo','on')) and
+      (is_state('input_text.last_movement','Living area') or is_state('binary_sensor.zw100_multisensor_6_home_security_motion_detected_7','on')) and
       is_state('input_boolean.entertainment_mode','off') and
       is_state('input_boolean.sleep_mode','off')
     }}"

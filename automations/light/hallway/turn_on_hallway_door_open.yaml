@@ -1,7 +1,7 @@
 - alias: Turn on hallway when door is open
   trigger:
     - platform: state
-      entity_id: binary_sensor.rha_edo
+      entity_id: binary_sensor.zw112_door_window_sensor_6_sensor_2
       to: 'on'
   condition:
     condition: state

@@ -1,7 +1,7 @@
 - alias: Turn on toilet
   trigger:
     - platform: state
-      entity_id: binary_sensor.rto_emu_smo
+      entity_id: binary_sensor.zw100_multisensor_6_home_security_motion_detected
       to: 'on'
   condition:
     - condition: state

@@ -2,14 +2,14 @@ platform: min_max
 type: mean
 name: Average apartment temperature
 entity_ids:
-  - sensor.rba_emu_ste
-  - sensor.rbe_emu_ste
-  - sensor.rha_emu_ste
-  - sensor.rli_emu_00_ste
-  - sensor.rli_emu_01_ste
-  - sensor.rst_emu_ste
-  - sensor.rto_emu_ste
-  - sensor.rki_emu_ste
+  - sensor.routing_multilevel_sensor_air_temperature_8
+  - sensor.routing_multilevel_sensor_air_temperature_7
+  - sensor.routing_multilevel_sensor_air_temperature_5
+  - sensor.routing_multilevel_sensor_air_temperature_4
+  - sensor.routing_multilevel_sensor_air_temperature
+  - sensor.routing_multilevel_sensor_air_temperature_3
+  - sensor.routing_multilevel_sensor_air_temperature_2
+  - sensor.routing_multilevel_sensor_air_temperature_6
   - sensor.rba_eth_current_temperature
   - sensor.rbe_eth_current_temperature
   - sensor.rki_eth_current_temperature

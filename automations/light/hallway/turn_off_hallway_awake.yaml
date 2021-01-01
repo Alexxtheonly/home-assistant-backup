@@ -1,12 +1,12 @@
 - alias: Turn off hallway awake
   trigger:
     - platform: state
-      entity_id: binary_sensor.rha_emu_smo
+      entity_id: binary_sensor.zw100_multisensor_6_home_security_motion_detected_3
       to: 'off'
     - platform: state
       entity_id: sensor.average_apartment_luminance
     - platform: state
-      entity_id: binary_sensor.rha_edo
+      entity_id: binary_sensor.zw112_door_window_sensor_6_sensor_2
       to: 'off'
       for: 
         minutes: 2
@@ -15,14 +15,14 @@
         - binary_sensor.artificial_light        
   condition:
     - condition: state
-      entity_id: binary_sensor.rha_edo
+      entity_id: binary_sensor.zw112_door_window_sensor_6_sensor_2
       state: 'off'
     - condition: template
       value_template: "
       {{
         is_state('input_boolean.sleep_mode','off') and
         (is_state('binary_sensor.artificial_light','off') or 
-        is_state('binary_sensor.rha_emu_smo', 'off'))
+        is_state('binary_sensor.zw100_multisensor_6_home_security_motion_detected_3', 'off'))
       }}"
   action:
     service: light.turn_off

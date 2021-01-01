@@ -1,7 +1,7 @@
 - alias: Turn off bedroom
   trigger:
     - platform: state
-      entity_id: binary_sensor.rbe_emu_smo
+      entity_id: binary_sensor.zw100_multisensor_6_home_security_motion_detected_4
       to: 'off'
       for:
         seconds: 20
@@ -17,7 +17,7 @@
       value_template: "
   {{
     is_state('binary_sensor.artificial_light','off') or 
-    (not is_state('input_text.last_movement', 'Bedroom') and is_state('binary_sensor.rbe_emu_smo', 'off'))
+    (not is_state('input_text.last_movement', 'Bedroom') and is_state('binary_sensor.zw100_multisensor_6_home_security_motion_detected_4', 'off'))
   }}"  
   action:
     service: light.turn_off

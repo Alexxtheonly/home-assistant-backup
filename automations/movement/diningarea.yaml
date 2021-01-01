@@ -1,7 +1,7 @@
 - alias: Dining area movement
   trigger:
    - platform: state
-     entity_id: binary_sensor.rli_emu_01_smo
+     entity_id: binary_sensor.zw100_multisensor_6_home_security_motion_detected_6
      to: 'on'
   condition:
    - condition: template

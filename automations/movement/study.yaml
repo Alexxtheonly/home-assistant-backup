@@ -1,7 +1,7 @@
 - alias: Study movement
   trigger:
    - platform: state
-     entity_id: binary_sensor.rst_emu_smo
+     entity_id: binary_sensor.zw100_multisensor_6_home_security_motion_detected_2
      to: 'on'
   condition:
    - condition: template

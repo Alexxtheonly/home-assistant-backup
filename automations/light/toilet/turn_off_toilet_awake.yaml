@@ -1,7 +1,7 @@
 - alias: Turn off toilet awake
   trigger:
     - platform: state
-      entity_id: binary_sensor.rto_emu_smo
+      entity_id: binary_sensor.zw100_multisensor_6_home_security_motion_detected
       to: 'off'
       for:
         seconds: 20
@@ -11,7 +11,7 @@
     - condition: template
       value_template: "{{ not is_state('input_text.last_movement', 'Toilet') }}"
     - condition: state
-      entity_id: binary_sensor.rto_emu_smo
+      entity_id: binary_sensor.zw100_multisensor_6_home_security_motion_detected
       state: 'off'
     - condition: state
       entity_id: input_boolean.sleep_mode
